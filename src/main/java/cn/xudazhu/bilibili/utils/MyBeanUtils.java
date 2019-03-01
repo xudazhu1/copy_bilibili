@@ -59,6 +59,7 @@ public class MyBeanUtils {
      */
     public static Boolean populate(Object object, Map<Object, Object> map) {
         try {
+            boolean populate1 = false;
             //获取传入对象的类对象
             Class<?> class1 = object.getClass();
             //用类对象获取全部方法的数组
@@ -75,11 +76,12 @@ public class MyBeanUtils {
                     if (methodName.startsWith("set") && methodName.substring(3).equals(parameter)) {
                         //如果匹配 就执行set方法  把value传进去
                         invokeMethod(method, object, entry.getValue());
+                        populate1 = true;
                     }
                 }
             }
 
-            return true;
+            return populate1;
         } catch (Exception e) {
             e.printStackTrace();
             return false;

@@ -64,7 +64,7 @@ public class VideoBean {
      * 视频作者accountBean id
      * @see UserBean
      */
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER )
     @JoinColumn (name = "author_ID")
     private UserBean userBean;
     /**

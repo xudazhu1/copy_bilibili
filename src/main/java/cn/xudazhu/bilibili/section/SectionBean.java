@@ -15,7 +15,6 @@ import javax.persistence.*;
 @Table(name = "section")
 @Getter
 @Setter
-@JsonIgnoreProperties(value={"hibernateLazyInitializer","handler","fieldHandler"})
 public class SectionBean {
 
     /**

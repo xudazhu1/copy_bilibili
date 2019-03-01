@@ -54,7 +54,7 @@ function show_discuss(discuss_page, discuss_a_page_num) {
     var requestData = new Object;
     requestData["a_page_num"] = discuss_a_page_num;
     requestData["page_num"] = discuss_page;
-    requestData["videoId"] = videoId;
+    requestData["videoBeanId"] = videoId;
     requestData["condition"] = "add_time";
 
     $.ajax({
@@ -69,20 +69,17 @@ function show_discuss(discuss_page, discuss_a_page_num) {
             discuss_all_page_num = data.all_page_num;
             $(".discuss_info").empty();
             $(data.discuss_data).each(function (index, discuss) {
-                $(".discuss_info").append("<div id='discuss_temp" + discuss.ID + "'></div>")
-//				workers_utils("format_discuss_html", discuss , function(evt){
-                $("#discuss_temp" + discuss.ID).append(format_discuss_html(discuss))
-//					$("#discuss_head_img_" + discuss.ID).attr("src" , "https://static.xudazhu.cn/img/head_img/"+discuss.account_json.head_img+".png")
+                $(".discuss_info").append("<div id='discuss_temp" + discuss.id + "'></div>")
+                $("#discuss_temp" + discuss.id).append(format_discuss_html(discuss))
                 //是否已赞
-                $.get("discuss_praise/has", {"discuss_ID": discuss.ID}, function (data) {
-                    $("#discuss_button_" + discuss.ID).css("color", data);
+                $.get("discuss_praise/has", {"discuss_ID": discuss.id}, function (data) {
+                    $("#discuss_button_" + discuss.id).css("color", data);
                 })
                 //赞的数量
-                $.get("discuss_praise/num", {"discuss_ID": discuss.ID}, function (data) {
-                    $("#discuss_num_" + discuss.ID).text(data)
+                $.get("discuss_praise/num", {"discuss_ID": discuss.id}, function (data) {
+                    $("#discuss_num_" + discuss.id).text(data)
                 })
-                show_subdiscuss4discuss($("#discuss" + discuss.ID));
-//				})
+                show_subdiscuss4discuss($("#discuss" + discuss.id));
 
             })
         }

@@ -213,7 +213,7 @@ function show_user_info( dom1) {
 //		var td1 = $(this);
 		timeout2 = setTimeout(function(){
 			$.get("c_user" , {"ID": dom1.attr("user_id")} , function ( userData_2 ) {
-				$("#user_info_head_img").attr("src" , "https://static.xudazhu.cn/img/head_img/"+userData_2.head_img+".png");
+				$("#user_info_head_img").attr("src" , "https://static.xudazhu.cn/img/head_img/"+userData_2.headImg+".png");
 				$("#user_info_name").text(userData_2.nickname);
 				$("#user_info_gender").removeClass("gender_img_boy");
 				$("#user_info_gender").removeClass("gender_img_girl");
@@ -462,24 +462,24 @@ function setCookie(name, value) {
 
 function format_discuss_html( discuss ) {
 //	var user_temp = getUserData(discuss.account_ID);
-	return "<div class='discuss_floor' name='"+discuss.ID+"'>" +
+	return "<div class='discuss_floor' name='"+discuss.id+"'>" +
 												"<div class='head_img1'>" +
 													"<a>" +
-														"<img src='https://static.xudazhu.cn/img/head_img/"+discuss.account_json.head_img+".png' user_id='"+discuss.account_json.account_ID+"'  id='discuss_head_img_"+discuss.ID+"'   class='head_img_img'>" +
+														"<img src='https://static.xudazhu.cn/img/head_img/"+discuss.userBean.headImg+".png' user_id='"+discuss.userBean.accountId+"'  id='discuss_head_img_"+discuss.id+"'   class='head_img_img'>" +
 													"</a>" +
 												"</div>" +
 												"<div class='discuss_info_right'>" +
-													"<p><a><xmp>"+discuss.account_json.nickname+"</xmp></a></p>" +
+													"<p><a><xmp>"+discuss.userBean.nickname+"</xmp></a></p>" +
 													"<span><xmp >"+ discuss.info + "</xmp></span>" +
 													"<div class='discuss_add_time' >  " +
-														"<span>"+formatDate(new Date(discuss.add_time.time))+"</span>" +
-														"<div style='font-size: 17px; margin: 0px 10px; color: black;' discuss_id='"+discuss.ID+"' id='discuss_button_"+discuss.ID+"'  class='glyphicon glyphicon-thumbs-up discuss_praise_button ' ></div>" +
-//														"<div style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("discuss_praise/has", {"discuss_ID": discuss.ID})+";' discuss_ID='"+discuss.ID+"' class='glyphicon glyphicon-thumbs-up discuss_praise_button'  id ='discuss_button_"+discuss.ID+"'></div>" +
-														"<span class='discuss_praise_num' id ='discuss_num_"+discuss.ID+"'>0</span>" +
-//														"<span class='praise_num'>"+get_praise_star_num("discuss_praise/num", {"discuss_ID": discuss.ID})+"</span>" +
-														"<button  class='btn btn-default btn-xs addSubdiscuss' name='discuss_ID="+discuss.ID+"&account_ID="+discuss.account_ID+"'>回复</button>" +
+														"<span>"+formatDate(new Date(discuss.addTime.time))+"</span>" +
+														"<div style='font-size: 17px; margin: 0px 10px; color: black;' discuss_id='"+discuss.id+"' id='discuss_button_"+discuss.id+"'  class='glyphicon glyphicon-thumbs-up discuss_praise_button ' ></div>" +
+//														"<div style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("discuss_praise/has", {"discuss_ID": discuss.id})+";' discuss_ID='"+discuss.id+"' class='glyphicon glyphicon-thumbs-up discuss_praise_button'  id ='discuss_button_"+discuss.id+"'></div>" +
+														"<span class='discuss_praise_num' id ='discuss_num_"+discuss.id+"'>0</span>" +
+//														"<span class='praise_num'>"+get_praise_star_num("discuss_praise/num", {"discuss_ID": discuss.id})+"</span>" +
+														"<button  class='btn btn-default btn-xs addSubdiscuss' name='discuss_ID="+discuss.id+"&account_ID="+discuss.userBean.accountId+"'>回复</button>" +
 													"</div>" +
-													"<div class='subdiscuss_div' id='discuss"+discuss.ID+"' name='discuss_ID="+discuss.ID+"&account_ID="+discuss.account_ID+"'></div>" +
+													"<div class='subdiscuss_div' id='discuss"+discuss.id+"' name='discuss_ID="+discuss.id+"&account_ID="+discuss.userBean.accountId+"'></div>" +
 												"</div>" +
 											"</div>";
 }
@@ -488,16 +488,16 @@ function format_subdiscuss_html( subdiscuss) {
 	return "<div class='subdiscuss_div_a'>" +
 		"<div class='subdiscuss_floor subdiscuss_div_left'>" +
 		"<div class='head_img2 '>" +
-		"<a><img src='https://static.xudazhu.cn/img/head_img/"+subdiscuss.account_json.head_img+".png' user_id='"+subdiscuss.account_json.account_ID+"' id='subdiscuss_head_img_"+subdiscuss.ID+"'  class='head_img_img  subdiscuss_head_img'> </a>" +
+		"<a><img src='https://static.xudazhu.cn/img/head_img/"+subdiscuss.videoBean.headImg+".png' user_id='"+subdiscuss.videoBean.account_ID+"' id='subdiscuss_head_img_"+subdiscuss.id+"'  class='head_img_img  subdiscuss_head_img'> </a>" +
 		"</div>" +
 		"<div class='subdiscuss_info_right ' id='discuss_input1_div'>" +
-		"<div class='subdiscuss_name_info'><span class='subdiscuss_account'>"+subdiscuss.account_json.nickname+" 回复 "+subdiscuss.target_json.nickname+" : </span><span>"+subdiscuss.info+"</span></div>" +
+		"<div class='subdiscuss_name_info'><span class='subdiscuss_account'>"+subdiscuss.videoBean.nickname+" 回复 "+subdiscuss.target_json.nickname+" : </span><span>"+subdiscuss.info+"</span></div>" +
 		"<div ><span>"+formatDate(new Date(subdiscuss.add_time.time))+"</span>" +
-		"<span style='font-size: 17px; margin: 0px 10px; color: black;' subdiscuss_id='"+subdiscuss.ID+"'  id ='subdiscuss_button_"+subdiscuss.ID+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
-//		"<span style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.ID})+";' subdiscuss_ID='"+subdiscuss.ID+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
-		"<span calss='subdiscuss_praise_num ' id ='subdiscuss_num_"+subdiscuss.ID+"' subdiscuss_id='"+subdiscuss.ID+"'>0</span>" +
-//		"<span calss'praise_num'>"+get_praise_star_num("subdiscuss_praise/num", {"subDiscuss_ID":subdiscuss.ID})+"</span>" +
-		"<button class='btn btn-default btn-xs addSubdiscuss' name='discuss_ID="+subdiscuss.discuss_json.ID+"&account_ID="+subdiscuss.account_ID+"'>回复</button>" +
+		"<span style='font-size: 17px; margin: 0px 10px; color: black;' subdiscuss_id='"+subdiscuss.id+"'  id ='subdiscuss_button_"+subdiscuss.id+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
+//		"<span style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.id})+";' subdiscuss_ID='"+subdiscuss.id+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
+		"<span calss='subdiscuss_praise_num ' id ='subdiscuss_num_"+subdiscuss.id+"' subdiscuss_id='"+subdiscuss.id+"'>0</span>" +
+//		"<span calss'praise_num'>"+get_praise_star_num("subdiscuss_praise/num", {"subDiscuss_ID":subdiscuss.id})+"</span>" +
+		"<button class='btn btn-default btn-xs addSubdiscuss' name='discuss_ID="+subdiscuss.discussBean.id+"&account_ID="+subdiscuss.userBean.accountId+"'>回复</button>" +
 		"</div>";
 	
 }

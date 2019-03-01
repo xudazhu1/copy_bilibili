@@ -12,29 +12,6 @@ onmessage = function(event){
 }
 
 
-function format_discuss_html( discuss ) {
-//	var user_temp = getUserData(discuss.account_ID);
-	return "<div class='discuss_floor' name='"+discuss.ID+"'>" +
-												"<div class='head_img1'>" +
-													"<a>" +
-														"<img src='https://static.xudazhu.cn/img/head_img/"+discuss.account_json.head_img+".png' user_id='"+discuss.account_json.account_ID+"' class='head_img_img'>" +
-													"</a>" +
-												"</div>" +
-												"<div class='discuss_info_right'>" +
-													"<p><a><xmp>"+discuss.account_json.nickname+"</xmp></a></p>" +
-													"<span><xmp >"+ discuss.info + "</xmp></span>" +
-													"<div class='discuss_add_time' >  " +
-														"<span>"+formatDate(new Date(discuss.add_time.time))+"</span>" +
-														"<div style='font-size: 17px; margin: 0px 10px; color: black;' discuss_id='"+discuss.ID+"' id='discuss_button_"+discuss.ID+"' class='glyphicon glyphicon-thumbs-up discuss_praise_button ' ></div>" +
-//														"<div style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("discuss_praise/has", {"discuss_ID": discuss.ID})+";' discuss_ID='"+discuss.ID+"' class='glyphicon glyphicon-thumbs-up discuss_praise_button'  id ='discuss_button_"+discuss.ID+"'></div>" +
-														"<span class='discuss_praise_num' id ='discuss_num_"+discuss.ID+"'>0</span>" +
-//														"<span class='praise_num'>"+get_praise_star_num("discuss_praise/num", {"discuss_ID": discuss.ID})+"</span>" +
-														"<button  class='btn btn-default btn-xs addSubdiscuss' name='discuss_ID="+discuss.ID+"&account_ID="+discuss.account_ID+"'>回复</button>" +
-													"</div>" +
-													"<div class='subdiscuss_div' id='discuss"+discuss.ID+"' name='discuss_ID="+discuss.ID+"&account_ID="+discuss.account_ID+"'></div>" +
-												"</div>" +
-											"</div>";
-}
 
 function format_subdiscuss_html( subdiscuss) {
 	return "<div class='subdiscuss_div_a'>" +
