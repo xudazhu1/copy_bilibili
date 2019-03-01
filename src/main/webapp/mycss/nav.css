@@ -1,0 +1,209 @@
+body {
+	/*background-color: rgb(244, 245, 247);*/
+	font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino
+		Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+xmp {
+	/* width: 100%; */
+	white-space: normal;
+	margin: 0px;
+	font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino
+		Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+a {
+	color: #777777;
+}
+
+input, textarea {
+	outline: none;
+}
+
+input::-webkit-input-placeholder {
+	color: white;
+}
+
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: white;
+}
+
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: white;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	color: white;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	color: inherit;
+}
+
+.h4, .h5, .h6, h4, h5, h6 {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+/*导航栏css*/
+.bili-icon {
+	/*position: absolute;*/
+	width: 17px;
+	height: 14px;
+	/*left: 10px;
+    top: 12px;*/
+	background-position: -919px -88px;
+	display: inline-block;
+	background-image: url(https://static.xudazhu.cn/img/icons.png);
+	text-align: center;
+	line-height: 42px;
+}
+
+.nav_top {
+	margin: 0 auto;
+	width: 1200px;
+	color: black;
+	/*border-bottom: 1px solid #e5e9ef;*/
+	height: 44px;
+	/*width: 100%;*/
+	/* margin: 0px 16%; */
+}
+
+.nav_top a {
+	color: #122B40;
+	text-align: center;
+}
+
+.table_left {
+	position: relative;
+	/*top: 0px;
+	left: 18%;*/
+	height: 44px;
+	width: 36%;
+	float: left;
+}
+
+.table_right {
+	position: relative;
+	/*top: 0px;
+	left: 45%;*/
+	height: 44px;
+	width: 18%;
+	float: right;
+}
+
+.up {
+	float: right;
+	position: relative;
+	/*left: 45%;*/
+	height: 44px;
+	color: #122B40;
+	text-align: center;
+}
+
+.tg {
+	float: left;
+	position: relative;
+	top: -6px;
+	width: 55px;
+	color: white;
+	line-height: 54px;
+	height: 55px;
+	background-color: rgb(255, 133, 173);
+	border-radius: 6px;
+}
+
+/*登陆后的css*/
+.header1_td a {
+	width: 100%;
+	/* height: 44px; */
+	color: #122B40;
+	text-align: center;
+}
+
+.header1_td a div {
+	width: 100%;
+	/* height: 44px; */
+	color: #122B40;
+	text-align: center;
+	/* line-height: 44px; */
+}
+
+#header1 a {
+	width: 100%;
+	height: 44px;
+	color: #122B40;
+	text-align: center;
+}
+
+.head_img {
+	margin-top: 3px;
+	margin: 0px 10px;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+	float: left;
+}
+
+#user_info {
+	width: 260px;
+	height: 160px;
+	display: none;
+	position: absolute;
+	padding: 18px 25px;
+	border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,.16);
+    border: 1px solid #e5e9ef;
+    background-color: white;
+}
+
+#user_info_info {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    margin: 0px;
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.gender {
+    background-image: url(https://static.xudazhu.cn/img/icons2.png);
+    display: inline-block;
+    background-position: -212px -472px;
+    width: 21px;
+    height: 18px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.gender_img_boy {
+    background-position: -212px -404px;
+}
+
+.gender_img_girl {
+    background-position: -212px -404px;
+}

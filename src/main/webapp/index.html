@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+	<head>
+	    <meta content="webkit" name="renderer" />
+		<meta charset="utf-8">
+		<title>哔哩哔哩·假</title>
+
+		<link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
+	</head>
+	
+	<link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="mycss/index.css" />
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.cookie.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="myjs/utils.js"></script>
+    <script type="text/javascript"> $(function(){  $("#get_cookie").attr("src" , "https://api.xudazhu.cn/get_cookie.html") })</script>
+    <script type="text/javascript" src="myjs/index.js"></script>
+	<body>
+        
+        <iframe id="get_cookie" src='' width='0' height='0' style="display: none;"> </iframe>
+		<div class="img-rounded" style="display: none; z-index: 20;" id="temp1">
+		</div>
+
+		<div>
+			<div id="header1" >
+				<div style="width: 100%; height: 45px;">
+					<div class="bg1 "></div>
+					<!-- <div class="bg2"></div> -->
+				</div>
+				<div id="nav_temp"  class="img-rounded" style="display: none; height: 60px; width: 120px; padding: 18px 30px;" >
+                    <button type="button" id="logout" class="btn btn-xs btn-info">退出登陆</button>
+                </div>
+                <div class="nav_outer_div">
+                    <div class="bg2"></div>
+	                <div class="auto_width_div" style="width: 1000px; margin: 0 auto; top: 0px; height: 44px;"> 
+						<table class="content-front " style="position:absolute; top: -44px;   height: 44px;  ">
+							<tbody>
+								<tr>
+									<td class="header1_td" style="cursor: pointer;">
+										<a target="_self" href="index">
+											<div>
+												<i class="bili-icon"></i> 主站
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#画友
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#音频
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#游戏中心
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#直播
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#会员购
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#BML
+											</div>
+										</a>
+									</td>
+									<td class="header1_td">
+										<a  >
+											<div>
+												#下载APP
+											</div>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+		                <div target="_blank" href="user?div=nav_upload_div" style="float: right;">
+		                    <a class="tg" id="tg" href="user?div=nav_upload_div" style="width: 55px; background-color: transparent;">
+		                    <div class="tg" >
+		                        投稿
+		                    </div>
+		                    </a>
+		                </div>
+		                <table class="content-front" style="position: relative; top: -44px; float: right;   height: 44px; ">
+	                    <tbody>
+	                        <tr class="table_right_tr">
+	                            <td class="header1_td">
+	                                <a  href="login">
+	                                    <div>
+	                                         &nbsp;登陆&nbsp;
+	                                    </div>
+	                                </a>
+	                            </td>
+	                            <td class="header1_td">
+	                                <a  href="register">
+	                                    <div>
+	                                        &nbsp;注册&nbsp;
+	                                    </div>
+	                                </a>
+	                            </td>
+	                            <td class="header1_td">
+	                                <a target="_blank" href="history.html">
+	                                    <div>
+	                                        &nbsp;历史&nbsp;
+	                                    </div>
+	                                </a>
+	                            </td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+	                </div>
+
+				</div>
+
+				<div class="biliImg"></div>
+				<div class="auto_width_div_out">
+					<div class="auto_width_div">
+						<div id="search" >
+			                <div class="search_div">
+			                    <button id="search1" type="button" class="btn btn-default btn-sm">排行榜</button>
+			                </div>
+			                <div class="search2">
+			                    <div class="search2_div">
+			                        <div class="input-group">
+			                            <input type="text" class="form-control" placeholder="Search for...">
+			                            <span class="input-group-btn">
+			                                    <button class="btn btn-default " type="button">GO !</button>
+			                              </span>
+			                        </div>
+			                        <!-- /input-group -->
+			                    </div>
+			                    <!-- /.col-lg-6 -->
+			                </div>
+			            </div>
+				    </div>
+			    </div>
+				
+				
+			</div>
+			<div style="width: 100%;float: left;height: 58px; display: none;" class="scrop_hide"> &nbsp; </div>
+            <div class="section_out_div">
+                <table class="table1 nav-a auto_width_div">
+                        <tbody><tr>
+                            <td style="background: rgba(255, 255, 255, 0.2);">
+                                <a href="index"><div style="line-height: 37px;">首页</div></a>
+                            </td>
+                            <td name="动画" sectionId="1" style="background: rgba(255, 255, 255, 0.2);">
+                                <a href="section.动画"><div>999+<br>动画</div></a>
+                            </td>
+                            <td name="番剧" sectionId="2" >
+                                <a href="section.番剧"><div>999+<br>番剧</div></a>
+                            </td>
+                            <td name="国创" sectionId="3" >
+                                <a href="section.国创"><div>999+<br>国创</div></a>
+                            </td>
+                            <td name="音乐" sectionId="4">
+                                <a href="section.音乐"><div>999+<br>音乐</div></a>
+                            </td>
+                            <td name="舞蹈" sectionId="5">
+                                <a href="section.舞蹈"><div>999+<br>舞蹈</div></a>
+                            </td>
+                            <td name="游戏" sectionId="6">
+                                <a href="section.游戏"><div>999+<br>游戏</div></a>
+                            </td>
+                            <td name="科技" sectionId="7">
+                                <a href="section.科技"><div>999+<br>科技</div></a>
+                            </td>
+                            <td name="生活" sectionId="8">
+                                <a href="section.生活"><div>999+<br>生活</div></a>
+                            </td>
+                            <td name="鬼畜" sectionId="9">
+                                <a href="section.鬼畜"><div>999+<br>鬼畜</div></a>
+                            </td>
+                            <td name="时尚" sectionId="10">
+                                <a href="section.时尚"><div>999+<br>时尚</div></a>
+                            </td>
+                            <td name="娱乐" sectionId="12">
+                                <a href="section.娱乐"><div>999+<br>娱乐</div></a>
+                            </td>
+                            <td name="影视" sectionId="13">
+                                <a href="section.影视"><div>999+<br>影视</div></a>
+                            </td>
+                            <td name="放映厅" sectionId="14">
+                                <a href="section.放映厅"><div>999+<br>放映厅</div></a>
+                            </td>
+                            <td name="广告">
+                                <a><div>xxx+<br>广告</div></a>
+                            </td>
+                            <td name="专栏">
+                                <a><div>xxx+<br>专栏</div></a>
+                            </td>
+                            <td name="广场">
+                                <a><div>xxx+<br>广场</div></a>
+                            </td>
+                            <td name="直播">
+                                <a><div>xxx+<br>直播</div></a>
+                            </td>
+                            <td>
+                                <a><div>xxx+<br>小黑屋</div></a>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+            </div>
+            
+				<div class="auto_width_div" style="width: 1000px; margin: 0 auto; ">
+				       
+					<div class="piece1" >
+						<div id="myCarousel" class="carousel slide" >
+							<ol class="carousel-indicators" >
+								<li data-target='#myCarousel' data-slide-to="0" class="active"></li>
+								&nbsp;&nbsp;
+								<li data-target='#myCarousel' data-slide-to="1"></li>
+								&nbsp;&nbsp;
+								<li data-target='#myCarousel' data-slide-to="2"></li>
+								&nbsp;&nbsp;
+								<li data-target='#myCarousel' data-slide-to="3"></li>
+								&nbsp;&nbsp;
+								<li data-target='#myCarousel' data-slide-to="4"></li>
+							</ol>
+							<div class="carousel-inner img-rounded ">
+								<div class="item active ">
+									<a target="_blank"  title="轮播图1">
+										<img style="height: 220px;" class="img-responsive take_turns_img center-block" src=" " alt="first slide" />
+									</a>
+								</div>
+								<div class="item">
+									<a target="_blank"  title="轮播图2">
+										<img style="height: 220px;" src=" " class="take_turns_img" alt="second slide" />
+									</a>
+								</div>
+								<div class="item">
+									<a target="_blank"  title="轮播图3">
+										<img style="height: 220px;" src=" " class="take_turns_img" alt="third slide" />
+									</a>
+								</div>
+								<div class="item">
+									<a target="_blank"  title="轮播图4">
+										<img style="height: 220px;" src=" " class="take_turns_img" alt="four slide" />
+									</a>
+								</div>
+								<div class="item">
+									<a target="_blank"  title="轮播图5">
+										<img style="height: 220px;" src=" " class="take_turns_img" alt="five slide" />
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="cover" >
+							<a target="_blank"  href="index" title="轮播图5" style="position: relative; top: 0px; left: 0px;">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+								<!-- <div class="img_hover img-rounded" style="display: none;">
+									<div class="video_hover_title" > 主站视频封频主站视视频封主站视频封主封主站视频封主站视频封主站视频封视频封标题</div>
+									<div class="video_hover_play_num"> 播放2次</div>
+								</div> -->
+							</a>
+						</div>
+						<div class="cover" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+						<div class="cover">
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+						<div class="cover">
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+						<div class="cover">
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+						<div class="cover">
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+						<div class="cover width_hide">
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+						<div class="cover width_hide">
+							<a target="_blank"  " title="轮播图5">
+								<img src=" " class="hot_video_img img_xs img-rounded" alt="cover" />
+							</a>
+						</div>
+					</div>
+	
+					<div class="piece2" >
+						<div style="width: 100%;">
+							<i class="icon1" style="background-position: -141px -75px;"></i>
+							<span class="title_div">推广</span>
+		                </div>
+						<div class="cover_s" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="img-rounded advertising img_xs" alt="cover" />
+								<p title="【洛天依言和原创曲】问斯人【litterzy】【今时古梦】" class="ranking1">【洛天依言和原创曲】问斯人【litterzy】【今时古梦】</p>
+							</a>
+						</div>
+						<div class="cover_s" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="img-rounded advertising img_xs" alt="cover" />
+								<p title="【新战场】 BLG 2018 主题曲" class="ranking1">【新战场】 BLG 2018 主题曲</p>
+							</a>
+						</div>
+						<div class="cover_s" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="img-rounded advertising img_xs" alt="cover" />
+								<p title="【洛天依言和原创曲】问斯人【litterzy】【今时古梦】" class="ranking1">【洛天依言和原创曲】问斯人【litterzy】【今时古梦】</p>
+							</a>
+						</div>
+						<div class="cover_s" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="img-rounded advertising img_xs" alt="cover" />
+								<p title="周刊哔哩哔哩排行榜#433" class="ranking1">周刊哔哩哔哩排行榜#433</p>
+							</a>
+						</div>
+						<div class="cover_s width_hide" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="img-rounded advertising img_xs" alt="cover" />
+								<p title="【英雄联盟/助力S8】2018 -沉梦昂志- 把遗憾都给我填上！" class="ranking1">【英雄联盟/助力S8】2018 -沉梦昂志- 把遗憾都给我填上！</p>
+							</a>
+						</div>
+	
+						<div class="cover_m" >
+							<a target="_blank"  title="轮播图5">
+								<img src=" " class="img-rounded advertising img_ms" alt="cover" />
+							</a>
+						</div>
+	
+					</div>
+	
+					<div class="piece3" name="音乐" sectionId="4" >
+	
+						<!-- <div class="leftElement" style="width: 900px; height: 363px; float: left;"> -->
+							<div class="auto_width_div_xm" style="width: 710px; float: left;">
+								<i class="icon1" style="background-position: -141px -140px;"></i>
+								<span style="font-size: 24px!important; line-height: 24px; font-weight: 400; margin-right: 20px; ">音乐</span>
+							</div>
+	
+							<!-- <div style="  float: left; "> -->
+						       	<div class="ranking" >
+	                                <div class="ranking_div" >
+	                                    <span class="ranking_div_span1" >排行</span>
+	        
+	                                    <a target="_blank" href=""><span class="ranking_div_span2" >全部</span></a>
+	                                    <a target="_blank" href=""><span class="ranking_div_span2" >原创</span></a>
+	        
+	                                    <div class="btn-group ranking_D" >
+	                                        <button type="button" class="btn btn-default btn-xs dropdown-toggle onfocus" data-toggle="dropdown" style="padd height: 22px;" aria-haspopup="true" aria-expanded="false">
+	                                        三日 <span class="caret"></span>
+	                                        </button>
+	                                        <ul class="dropdown-menu" style="min-width: 50px;">
+	                                            <li>
+	                                                &nbsp;
+	                                                <span class="nofocus">一周</span>
+	                                            </li>
+	                                        </ul>
+	                                    </div>
+	        
+	                                </div>
+	        
+	                                <div style="margin: 20px 0px;">
+	        
+	                                    <div class="rankingNum" style="height: 50px;">
+	                                        <i class="ri-num1" style="float: left;">1</i>
+	                                        <a target="_blank"  target="_blank" title="(此版块没铺数据--.--来自犯懒的easy)" class="firstLine" style=" float: left; width: 230px;">
+	                                            <div class="lazy-img ri-preview " style="width: 80px; float: left; ">
+	                                                <img class="img-rounded" alt="(此版块没铺数据--.--来自犯懒的easy)" src="https://static.xudazhu.cn/img/主站/排行榜首图.webp">
+	                                            </div>
+	                                            <div class="ri-detail" style=" height: 100%;">
+	                                                <p class="ri-title ranking1">(此版块没铺数据--.--来自犯懒的easy)</p>
+	                                                <p class="ri-point" style="height: 12px;">综合评分：20.1万</p>
+	                                            </div>
+	                                            <div class="watch-later-trigger w-later"></div>
+	                                        </a>
+	                                    </div>
+	        
+	                                    <div class="rankingNum">
+	                                        <i class="ri-num1" style="float: left;">2</i>
+	                                        <a target="_blank"  target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+	                                            <!---->
+	                                            <div class="ri-detail">
+	                                                <p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+	                                                <p class="ri-point" style="display: none;">综合评分：80.8万</p>
+	                                            </div>
+	                                            <!---->
+	                                        </a>
+	                                    </div>
+	        
+	                                    <div class="rankingNum">
+	                                        <i class="ri-num1" style="float: left;">3</i>
+	                                        <a target="_blank"  target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+	                                            <!---->
+	                                            <div class="ri-detail">
+	                                                <p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+	                                                <p class="ri-point" style="display: none;">综合评分：80.8万</p>
+	                                            </div>
+	                                            <!---->
+	                                        </a>
+	                                    </div>
+	        
+	                                    <div class="rankingNum">
+	                                        <i class="ri-num1" style="float: left;">4</i>
+	                                        <a target="_blank"  target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+	                                            <!---->
+	                                            <div class="ri-detail">
+	                                                <p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+	                                                <p class="ri-point" style="display: none;">综合评分：80.8万</p>
+	                                            </div>
+	                                            <!---->
+	                                        </a>
+	                                    </div>
+	        
+	                                    <div class="rankingNum">
+	                                        <i class="ri-num1" style="float: left;">5</i>
+	                                        <a target="_blank"  target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+	                                            <!---->
+	                                            <div class="ri-detail">
+	                                                <p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+	                                                <p class="ri-point" style="display: none;">综合评分：80.8万</p>
+	                                            </div>
+	                                            <!---->
+	                                        </a>
+	                                    </div>
+	        
+	                                    <div class="rankingNum">
+	                                        <i class="ri-num1" style="float: left;">6</i>
+	                                        <a target="_blank"  target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+	                                            <!---->
+	                                            <div class="ri-detail">
+	                                                <p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+	                                                <p class="ri-point" style="display: none;">综合评分：80.8万</p>
+	                                            </div>
+	                                            <!---->
+	                                        </a>
+	                                    </div>
+	        
+	                                    <a target="_blank"  target="_blank" class="more-link">查看更多<i class="icon icon-arrow-r"></i></a>
+	        
+	                                </div>
+	        
+	                            </div>
+							
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【洛天依言和原创曲】问斯人【litterzy】【今时古梦】" class="ranking1">【洛天依言和原创曲】问斯人【litterzy】【今时古梦】</p>
+									</a>
+								</div>
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【新战场】 BLG 2018 主题曲" class="ranking1">【新战场】 BLG 2018 主题曲</p>
+									</a>
+								</div>
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【洛天依言和原创曲】问斯人【litterzy】【今时古梦】" class="ranking1">【洛天依言和原创曲】问斯人【litterzy】【今时古梦】</p>
+									</a>
+								</div>
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="周刊哔哩哔哩排行榜#433" class="ranking1">周刊哔哩哔哩排行榜#433</p>
+									</a>
+								</div>
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【英雄联盟/助力S8】2018 -沉梦昂志- 把遗憾都给我填上！" class="ranking1">【英雄联盟/助力S8】2018 -沉梦昂志- 把遗憾都给我填上！</p>
+									</a>
+								</div>
+								
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【洛天依言和原创曲】问斯人【litterzy】【今时古梦】" class="ranking1">【洛天依言和原创曲】问斯人【litterzy】【今时古梦】</p>
+									</a>
+								</div>
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【新战场】 BLG 2018 主题曲" class="ranking1">【新战场】 BLG 2018 主题曲</p>
+									</a>
+								</div>
+								<div class="cover_s">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【洛天依言和原创曲】问斯人【litterzy】【今时古梦】" class="ranking1">【洛天依言和原创曲】问斯人【litterzy】【今时古梦】</p>
+									</a>
+								</div>
+								<div class="cover_s width_hide">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="周刊哔哩哔哩排行榜#433" class="ranking1">周刊哔哩哔哩排行榜#433</p>
+									</a>
+								</div>
+								<div class="cover_s width_hide">
+									<a target="_blank"  title="轮播图5">
+										<img src=" " class="img-rounded img_xs" alt="cover" />
+										<p title="【英雄联盟/助力S8】2018 -沉梦昂志- 把遗憾都给我填上！" class="ranking1">【英雄联盟/助力S8】2018 -沉梦昂志- 把遗憾都给我填上！</p>
+									</a>
+								</div>
+	
+							<!-- </div> -->
+						<!-- </div> -->
+	
+						</div>
+	
+				</div>
+            
+			<!--<div style="width: 18%; float: left;"></div>-->
+
+			<div class="below">
+				<div class="below_div">
+					<ul class="boston-postcards">
+						<li>
+							<div class="tips" style="width: 100%;">bilibili</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/aboutUs.html">关于我们</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/contact.html">联系我们</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/join.html">加入我们</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/friends-links.html">友情链接</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//account.bilibili.com/account/official/home">bilibili认证</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="http://ir.bilibili.com">Investor Relations</a>
+							</div>
+						</li>
+						<li>
+							<div class="tips" style="width: 100%;">传送门</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/help.html">帮助中心</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/video/av120040/">高级弹幕</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/activity_list.html">活动专题页</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/copyright.html">侵权申诉</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//activity.bilibili.com/">活动中心</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="http://link.acg.tv">用户反馈论坛</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//space.bilibili.com/6823116#/album">壁纸站</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/blackboard/activity-S1jfy69Jz.html">名人堂</a>
+							</div>
+							<div class="cards">
+								<a target="_blank" target="_blank" href="//www.bilibili.com/basc">专车号服务中心</a>
+							</div>
+						</li>
+						<li>
+							<div class="block right" style="width: 100%;">
+								<a target="_blank" target="_blank" href="//app.bilibili.com/">
+									<center>
+										<div class="phone iconR" style="width: 82px;">
+											<div class="pic" id="footer-mobile-app" style="float: none;"></div>
+											<span style="width: 82px;">应用下载</span>
+											<br />
+											<div class="qrcode-box-wrp">
+												<div class="qrcode-box qrcode-app">
+													<div class="qrcode-box-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</center>
+								</a>
+								<a target="_blank" target="_blank" href="http://weibo.com/bilibiliweb">
+									<center>
+										<div class="weibo iconR" style="width: 82px;">
+											<div class="pic2" style="width: 60px;"></div><span>新浪微博</span>
+											<div class="qrcode-box-wrp">
+												<div class="qrcode-box qrcode-weibo">
+													<div class="qrcode-box-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</center>
+								</a>
+								<a target="_blank" id="weixin">
+									<div class="weixin iconR" style="width: 82px;">
+										<div class="pic3" style="width: 60px;"></div><span>官方微信</span>
+										<div class="qrcode-box-wrp bigvip-qrcode">
+											<div class="qrcode-box qrcode-weixin">
+												<div class="qrcode-box-arrow"></div>
+											</div>
+										</div>
+									</div>
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div>
+
+				<div class="below_div2" >
+					<center>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</center>
+				</div>
+
+			</div>
+		</div>
+	</body>
+
+
+</html>

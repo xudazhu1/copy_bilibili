@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html data-dpr="1">
+
+	<head>
+		<!-- <meta name="referrer" content="webkit"> -->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>用户登陆_copy_bilibili</title>
+		<link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
+		<meta name="description" content="bilibili是一家弹幕站点,大家可以在这里找到许多的欢乐.">
+		<meta name="keywords" content="B站 弹幕 字幕 AMV MAD MTV ANIME 动漫 动漫音乐 游戏 游戏解说 ACG galgame 动画 番组 新番 初音 洛天依 vocaloid">
+		<!-- <meta name="viewport" id="viewport" content="width=device-width,inxitial-scale=1,user-scalable=1,minimum-scale=1,maximum-scale=1,minimal-ui"> -->
+		<!-- <meta name="viewport" id="viewport" > -->
+		<link rel="search" type="application/opensearchdescription+xml" href="//static.hdslb.com/opensearch.xml" title="哔哩哔哩">
+		<meta name="spm_prefix" content="333.39">
+		<link rel="stylesheet" href="https://static.hdslb.com/css/core-v5/base.css">
+		<link charset="utf-8" rel="stylesheet" href="https://static.hdslb.com/passport/seajs/plugin/dialog/skins/white.css">
+		<script type="text/javascript" src="//static.hdslb.com/js/jquery.min.js"></script>
+		<script type="text/javascript" src="myjs/utils.js"></script>
+		<script type="text/javascript" src="myjs/login.js" ></script>
+		<script>
+			var isMobile = /AppleWebKit.*Mobile.*/i.test(navigator.userAgent)
+
+			window.reportMsgObj = {}
+			window.reportConfig = {
+				sample: 1,
+				scrollTracker: false,
+				msgObjects: 'reportMsgObj'
+			}
+		</script>
+		<link href="//s1.hdslb.com/bfs/static/passport/static/css/phone.a9290aceb5e868196b0f69f5f103ffc4.css" rel="stylesheet">
+		<link type="text/css" href="mycss/register.css" />
+	</head>
+
+	<body style="font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;">
+	<iframe id="add_cookie" src='' width='0' height='0' style="display: none;"> </iframe>
+		<div id="app">
+			<div class="bili-header-m report-wrap-module">
+				<div style="width: 100%; height: 45px;">
+					<div class="bg1 "></div>
+					<div class="bg2"></div>
+				</div>
+				<table class=" content-front " style="position:absolute; top: 0px; left: 18%;  height: 44px; width: 20%; ">
+					<tbody>
+						<tr>
+							<td style="cursor: pointer;">
+								<a href="index">
+									<div>
+										<i class="bili-icon"></i> 主站
+									</div>
+								</a>
+							</td>
+							<td style="">
+								<a href="#">
+									<div>
+										画友
+									</div>
+								</a>
+							</td>
+							<td style="">
+								<a href="#">
+									<div>
+										音频
+									</div>
+								</a>
+							</td>
+							<td style="">
+								<a href="#">
+									<div>
+										游戏中心
+									</div>
+								</a>
+							</td>
+							<td style="">
+								<a href="#">
+									<div>
+										直播
+									</div>
+								</a>
+							</td>
+							<td style="">
+								<a href="#">
+									<div>
+										会员购
+									</div>
+								</a>
+							</td>
+							<td>
+								<a href="#">
+									<div>
+										BML
+									</div>
+								</a>
+							</td>
+							<td>
+								<a href="#">
+									<div>
+										下载APP
+									</div>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<!---->
+				<!---->
+			</div>
+			<div data-v-4b710c76="">
+				<div data-v-4b710c76="" class="top-banner"><img src="//s1.hdslb.com/bfs/static/passport/static/img/rl_top.35edfde.png"></div>
+				<div data-v-4b710c76="" class="title-line"><span class="tit" style="font-size: 38px;">登陆</span></div>
+				<div data-v-4b710c76="" class="register-container">
+						<div data-v-4b710c76="" class="form-group">
+							<div data-v-4b710c76="" class="el-input">
+								<!----><input type="text" autocomplete="off" id="email" name="email" placeholder="邮箱" class="el-input__inner">
+								<!---->
+								<!---->
+								<!---->
+							</div>
+							<p data-v-4b710c76="" class="error-message error_email"></p>
+						</div>
+						<div data-v-4b710c76="" class="register-hidden-gruop">
+							<!--<div data-v-4b710c76="" class="safe_window" style="display: block;">
+								<p data-v-4b710c76="">安全系数</p>
+								<div data-v-4b710c76="" class="a_pw">
+									<div class="safe_line bc0001"></div>
+									<div class="safe_line e7e7e7e"></div>
+									<div class="safe_line e7e7e7e"></div>
+									<div class="safe_line e7e7e7e"></div>
+									<div class="safe_line e7e7e7e"></div><span style="color:#bc0001">弱</span></div>
+							</div>-->
+						</div>
+						<div data-v-4b710c76="" class="form-group">
+							<div data-v-4b710c76="" class="el-input">
+								<!----><input type="password" autocomplete="off" id="password" name="password" placeholder="密码（6-16个字符组成，区分大小写）" class="el-input__inner">
+								<!---->
+								<!---->
+							</div>
+							<p data-v-4b710c76="" class="error-message error_password">
+						</div>
+						<div data-v-4b710c76="" class="register-hidden-gruop"></div>
+						
+						<div data-v-4b710c76="" class="form-group" id="test1" style="position: relative; left: 1px; width: 420px; height: 250px;" >
+                            <img alt="cover" src="https://static.xudazhu.cn/img/主站/主站视频封面1.png"  style="border-radius: 5px;">
+                            <img alt="heikuai" id="heikuai_x" src="https://static.xudazhu.cn/img/验证码黑块儿.png"  style="width: 60px; height: 60px; border-radius: 3px; position: relative; top: -160px; left: 170px;" />
+                            <!--<img alt="cover" src="https://static.xudazhu.cn/img/主站/主站视频封面1.jpg" style="width: 70px; height: 70px;">-->
+                            <div id="heikuai" style=" position: relative; top: -220px; width: 60px; height: 60px; border-radius: 3px; background-image: url(https://static.xudazhu.cn/img/主站/主站视频封面1.png); background-position: -170px -90px;">
+                                
+                            </div>
+                        </div>
+                        <div data-v-4b710c76="" style="" id="tishi"  class="form-group"> &nbsp;</div>
+                        
+                        <div data-v-4b710c76="" style=" height: 40px;" id="huakuai_button"  class="form-group"><button data-v-4b710c76=""  style="height: 20px; "  type="button" class="el-button btn-full  btn-xs"><span style="line-height: 20px; position: relative; top: -8px;" >>>滑动滑块来验证>></span></button></div>
+                        
+                        
+						
+						
+						<div data-v-4b710c76="" class="form-group">
+							<p data-v-4b710c76="" class="error-message is_login"></p>
+						</div>
+								<!---->
+						<div data-v-4b710c76="" class="form-group"><button data-v-4b710c76=""  id="submit" type="button" class="el-button btn-full "><!----><!----><span>登陆</span></button></div>
+						<div data-v-4b710c76="" id="register_pc_direct_login" class="register-hidden-gruop text-right">
+						<a data-v-4b710c76="" href="register">没有账号? 去注册&gt;</a>
+						</div>
+					<!---->
+					<!---->
+					<!---->
+				</div>
+			</div>
+			<div class="footer bili-footer">
+				<div class="footer-wrp">
+					<div class="footer-cnt clearfix report-wrap-module">
+						<ul class="boston-postcards">
+							<li>
+								<div class="tips">bilibili</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/aboutUs.html">关于我们</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/contact.html">联系我们</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/join.html">加入我们</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/friends-links.html">友情链接</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//account.bilibili.com/account/official/home">bilibili认证</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="http://ir.bilibili.com">Investor Relations</a>
+								</div>
+							</li>
+							<li>
+								<div class="tips">传送门</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/help.html">帮助中心</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/video/av120040/">高级弹幕</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/activity_list.html">活动专题页</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/copyright.html">侵权申诉</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//activity.bilibili.com/">活动中心</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="http://link.acg.tv">用户反馈论坛</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//space.bilibili.com/6823116#/album">壁纸站</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/blackboard/activity-S1jfy69Jz.html">名人堂</a>
+								</div>
+								<div class="cards">
+									<a target="_blank" href="//www.bilibili.com/basc">专车号服务中心</a>
+								</div>
+							</li>
+							<li>
+								<div class="block right">
+									<a target="_blank" href="//app.bilibili.com/">
+										<div class="phone">
+											<div class="pic" id="footer-mobile-app"></div><em>客户端下载</em>
+											<div class="qrcode-box-wrp">
+												<div class="qrcode-box qrcode-app">
+													<div class="qrcode-box-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</a>
+									<a target="_blank" href="http://weibo.com/bilibiliweb">
+										<div class="weibo">
+											<div class="pic"></div><em>新浪微博</em>
+											<div class="qrcode-box-wrp">
+												<div class="qrcode-box qrcode-weibo">
+													<div class="qrcode-box-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</a>
+									<a id="weixin">
+										<div class="weixin">
+											<div class="pic"></div><em>官方微信</em>
+											<div class="qrcode-box-wrp bigvip-qrcode">
+												<div class="qrcode-box qrcode-weixin">
+													<div class="qrcode-box-arrow"></div>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							</li>
+						</ul>
+						<div class="partner">
+							<div class="block left" style="padding-top: 0px;">
+								<div class="partner-banner"></div>
+								<a id="jvs-cert" href="https://webcert.cnmstl.net/cert/grade?sn=d3ec53ae63a84350945198bab0251d59" target="_blank" style="display: block; max-width: 132px;">
+									<div id="jvs-certifyOuter" class="jvs-certifyOuter" style="width: 100%; position: relative;"><img id="certify-img1" class="            act" crossorigin="anonymous" src="backup.hdslb.com/bfs/mainfront/websafe.png" style="position: absolute; left: 0px; top: 0px; display: block; width: 100%; height: auto; opacity: 1; max-height: none; border: none;"><img id="certify-img2" class="           " crossorigin="anonymous" src="backup.hdslb.com/bfs/mainfront/confirm.png" style="position: absolute; left: 0px; top: 0px; display: block; max-height: none; width: 100%; height: auto; opacity: 0; border: none;"></div>
+								</a>
+							</div>
+							<div class="block left" style="margin: 0px 68px 0 115px;line-height:24px;float: none;">
+								<p>广播电视节目制作经营许可证：<span>（沪）字第1248号</span> | 网络文化经营许可证：<span>沪网文[2016]2296-134号</span> | 信息网络传播视听节目许可证：<span>0910417</span> | 互联网ICP备案：
+									<a href="http://www.miitbeian.gov.cn/" target="_blank">沪ICP备13002172号-3</a> 沪ICP证：<span>沪B2-20100043</span> | 违法不良信息举报邮箱：help@bilibili.com | 违法不良信息举报电话：4000233233转3 |
+									<a href="//static.hdslb.com/images/yyzz.png" target="_blank">营业执照</a>
+								</p>
+								<p>
+									<a href="http://www.shjbzx.cn" target="_blank"><i class="icons-footer icons-footer-report"></i><span> 上海互联网举报中心</span></a> |
+									<a href="http://jb.ccm.gov.cn/" target="_blank">12318 全国文化市场举报网站</a> |
+									<a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=31011002002436"><img src="//static.hdslb.com/images/base/beiantubiao.png" style="vertical-align: top;"> 沪公网安备 31011002002436号 |</a>
+									<a href="mailto:userreport@bilibili.com">儿童色情信息举报专区</a>
+								</p>
+								<p>
+									<a href="http://report.12377.cn:13225/toreportinputNormal_anis.do" target="_blank">网上有害信息举报专区：<img src="//static.hdslb.com/images/12377.png" width="16" height="16" style="vertical-align: sub;"> 中国互联网违法和不良信息举报中心</a>
+								</p>
+								<p>公司名称：上海宽娱数码科技有限公司 | 公司地址：上海市杨浦区政立路485号 | 客服电话：4000233233</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

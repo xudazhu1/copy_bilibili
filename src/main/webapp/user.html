@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="referrer" content="webkit">
+        <meta charset="utf-8">
+		<title>个人空间-哔哩哔哩·假</title>
+		<link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
+    </head>
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="mycss/user.css" />
+    <link rel="stylesheet" href="mycss/nav.css" />
+    <link rel="stylesheet" href="mycss/upload.css" />
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.cookie.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="myjs/utils.js"></script>
+    <script type="text/javascript"> $(function(){  $("#get_cookie").attr("src" , "https://api.xudazhu.cn/get_cookie.html") })</script>
+    <script type="text/javascript" src="myjs/nav.js"></script>
+    <script type="text/javascript" src="myjs/user.js"></script>
+    <script type="text/javascript" src="myjs/upload.js"></script>
+
+    <body>
+        <iframe id="get_cookie" src='' width='0' height='0' style="display: none;"> </iframe>
+        <div style="height: 44px; border-bottom: 1px solid #e5e9ef;">
+            <div class="nav_top">
+	            <div id="nav_temp" style="display: none; height: 60px; width: 120px; padding: 18px 30px;" >
+	                <button type="button" id="logout" class="btn btn-xs btn-info">退出登陆</button>
+	            </div>
+                <table class="content-front table_left">
+                    <tbody>
+                        <tr>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div><i class="bili-icon"></i> 主站</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>画友</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>音频</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>游戏中心</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>直播</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>会员购</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>BML</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index"><div>下载APP</div></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="user?div=nav_upload_div" class="up">
+                    <div class="tg">投稿</div>
+                </a>
+
+                <table class="content-front table_right">
+                    <tbody>
+                        <tr class="table_right_tr">
+                            <td class="header1_td">
+                                <a href="login"><div>&nbsp;登陆&nbsp;</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="register"><div>&nbsp;注册&nbsp;</div></a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="history.html"><div>&nbsp;历史&nbsp;</div></a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div class="next1">
+            <div class="head_img1">
+                <div class="h-gradient">
+                    <div class="h-user ">
+                        <div class="h-info clearfix">
+                            <div class="h-avatar"><img class="head_img2" src="https://static.xudazhu.cn/img/head_img/15.png" id="h-avatar">
+                                <!-- <a target="_blank" href="https://account.bilibili.com/account/face/upload" class="avatar-cover">更换头像</a> -->
+                                <span class="user-auth-subscript avatar-m"></span>
+                            </div>
+                            <div class="h-basic">
+                                <div>
+                                    <span id="h-name">essy-x</span><span id="h-ceritification" class="icon"></span>
+                                    <span id="h-gender" class="icon gender  male"></span>
+                                </div>
+                                <div class="h-basic-spacing">
+                                    <h4 title="" class="h-sign" style="display: none;"></h4>
+                                    <input id="h-sign" type="text" placeholder="编辑个性签名" maxlength="60" style=""></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="n">
+                <div class="n-tab-links">
+                    <a name="main_div" class="n-btn n-index n-fans n-404 router-link-exact-active router-link-active active main_div_a nav_main_div">
+                        <span class="iconfont icon-ic_home"></span>
+                        <span class="n-text">主页</span>
+                    </a>
+                    <!--<a href="#/dynamic" class="n-btn n-dynamic">
+                        <span class="iconfont icon-ic_following"></span>
+                        <span class="n-text">动态</span>
+                    </a>-->
+                    <a name="dynamic_div" class="n-btn n-favlist main_div_a nav_dynamic_div">
+                        <span class="iconfont icon-ic_dynamic"></span>
+                        <span class="n-text">互动</span>
+                        <span class="n-num nav_message_num">
+                            0
+                          </span>
+                    </a>
+                    <a name="video_div" class="n-btn n-video n-audio n-article n-album main_div_a nav_video_div">
+                        <span class="iconfont icon-ic_video"></span>
+                        <span class="n-text">视频</span>
+                        <span class="video_num">0</span>
+                    </a>
+                    <a name="upload_div" class="n-btn n-video n-audio n-article n-album main_div_a nav_upload_div">
+                        <span class="iconfont icon-ic_up"></span>
+                        <span class="n-text">投稿</span>
+                        <!-- <span class="n-num"></span> -->
+                    </a>
+
+                    <!---->
+                    <!--<a href="#/channel/index" class="n-btn n-channel">
+                        <span class="iconfont icon-ic_channel"></span>
+                        <span class="n-text">频道</span>
+                        <span class="n-num">
+                            0
+                        </span>
+                    </a>-->
+                    <a name="star_div" class="n-btn n-favlist main_div_a nav_star_div">
+                        <span class="iconfont icon-ic_collect"></span>
+                        <span class="n-text">收藏夹</span>
+                        <span class="n-num">
+                            1
+                          </span>
+                    </a>
+                    <!--<a href="#/bangumi" class="n-btn n-bangumi n-subs">
+                        <span class="iconfont icon-ic_sub"></span>
+                        <span class="n-text">订阅</span>
+                    </a>-->
+                    <a name="setting_div" class="n-btn n-setting main_div_a nav_setting_div">
+                        <span class="iconfont icon-ic_setting"></span>
+                        <span class="n-text">设置</span>
+                    </a>
+                    <form class="search_video">
+                        <input type="text" autocomplete="off" accesskey="s" x-webkit-speech="" x-webkit-grammar="builtin:translate" placeholder="解除封印吧！虾饺" class="nav-search-keyword">
+                        <button type="submit" class="nav-search-submit"></button>
+                    </form>
+                </div>
+
+                <div id="bottom1" style="position: absolute;"></div>
+
+                <div class="next2">
+                    <div class="main_div" style="display: block;">
+                        <div class="main_option">
+	                          <h4 class="my_fans_title">我的粉丝</h4>
+	                          <!-- <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img head_img_img" user_id='1'>
+	                          <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img head_img_img" user_id='1' >
+	                          <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img head_img_img" user_id='1'> -->
+	                          <div style="float: left; line-height: 20px; position: relative; top: 45px;" >  共<span class="my_fans_num" >1</span>位</div>
+	                          <button class="btn btn-default main_option_info" name="star_account_button">详情</button>
+                        </div>
+                        <div class="main_option">
+                               <h4 class="my_star_title"> 我的关注</h4>
+	                          <!-- <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img">
+	                          <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img">
+	                          <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img"> -->
+	                          <div style="float: left; line-height: 20px; position: relative; top: 45px;" >  共<span class="my_star_num">1</span>位</div>
+	                          <button class="btn btn-default main_option_info" name="star_account_button">详情</button>
+                        </div>
+                            <div class="" style="float: left; width: 100%; padding: 10px 20px; background-color: white;"><h4>最新互动</h4></div>
+                        <div class="main_option_xm">
+                            <h5>我的赞</h5>
+                            <div>你 赞了xxx的作品 xxxxx(视频地址)</div>
+                            <div>你 在 xxxxx(视频地址) 赞了xxx的评论xxx</div>
+                            <div>你 在 xxxxx(视频地址) 赞了xxx的评论xxx</div>
+                            <div><a  class="show_message_page" name="video_praise">更多</a></div>
+                        </div>
+                        <div class="main_option_xm">
+                            <h5>赞的我</h5>
+                            <div>你 赞了xxx的作品 xxxxx(视频地址)</div>
+                            <div>你 在 xxxxx(视频地址) 赞了xxx的评论xxx</div>
+                            <div>你 在 xxxxx(视频地址) 赞了xxx的评论xxx</div>
+                            <div><a class="show_message_page" name="video_praise_me">更多</a></div>
+                        </div>
+                        <div class="main_option_xm">
+                          <h5>被收藏</h5>
+                          <div class="main_star_my_video">
+                            <div>你 赞了xxx的作品 xxxxx(视频地址)</div>
+                            <div>你 在 xxxxx(视频地址) 赞了xxx的评论xxx</div>
+                            <div>你 在 xxxxx(视频地址) 赞了xxx的评论xxx</div>
+                           </div>
+                           <div><a class="show_message_page" name="video_star_me">更多</a></div>
+                        </div>
+                    </div>
+                    <div class="dynamic_div" style="display: none;">
+                        <div class="dynamic_left_nav">
+						      <!-- <button type="button" class="list-group-item message_btn" id="message"><span class="badge">0</span>系统消息</button> -->
+						      <button type="button" class="list-group-item fans_button" id="star_account_button"  name="star_account_ID"><span class="badge my_fans_num">0</span>我的粉丝</button>
+						      <button type="button" class="list-group-item fans_button"  id="account_button" name="account_ID"><span class="badge my_star_num">0</span>我的关注</button>
+						      <button type="button" class="list-group-item message_btn" id="video_star_me"><span class="badge">14</span>被收藏</button>
+						      <button type="button" class="list-group-item">我的赞<span class="unfold">﹀</span></button>
+						      <div class="my_praise sub-item-div">
+							      <button type="button" class="list-group-item sub-list-group-item message_btn" id="video_praise">我赞的视频</button>
+							      <button type="button" class="list-group-item sub-list-group-item message_btn" id="discuss_praise">赞的评论</button>
+							      <button type="button" class="list-group-item sub-list-group-item message_btn" id="subdiscuss_praise">我赞的子评论</button>
+						      </div>
+						      <button type="button" class="list-group-item">赞的我<span class="unfold">﹀</span></button>
+						      <div class="praise_me sub-item-div">
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="video_praise_me"><span class="badge">14</span>视频的赞</button>
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="discuss_praise_me"><span class="badge">14</span>评论的赞</button>
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="subdiscuss_praise_me"><span class="badge">14</span>子评论的赞</button>
+                              </div>
+						      <button type="button" class="list-group-item">我的评论<span class="unfold">﹀</span></button>
+						      <div class="my_praise sub-item-div">
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="discuss">我的评论</button>
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="subdiscuss">我的回复</button>
+                              </div>
+						      <button type="button" class="list-group-item">评论我的<span class="unfold">﹀</span></button>
+						      <div class="my_praise sub-item-div">
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="discuss_me"><span class="badge">14</span>收到的评论</button>
+                                  <button type="button" class="list-group-item sub-list-group-item message_btn" id="subdiscuss_me"><span class="badge">14</span>收到的回复</button>
+                              </div>
+                        </div>
+                        <div class="dynamic_right">
+                            <div class="fans_div" style="display: none;">
+                                <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img head_img_img">
+                                <img src="https://static.xudazhu.cn/img/head_img/1.png" class="main_head_img head_img_img">
+                            </div>
+                            <div class="system_message" style="display: block;">
+                                <div class="message_title">共77条</div>
+	                            <div><span class="message">你关注的<a>xxx</a> 投稿了新作品 <a>xxxx</a></span><span class="is_read">未读</span><span class="add_time">2018.12.9 21:56:22</span></div>
+	                            <div><span class="message">你关注的<a>xxx</a> 投稿了新作品 <a>xxxx</a></span><span class="is_read">未读</span><span class="add_time">2018.12.9 21:56:22</span></div>
+	                            <div><span class="message">你关注的<a>xxx</a> 投稿了新作品 <a>xxxx</a></span><span class="is_read">未读</span><span class="add_time">2018.12.9 21:56:22</span></div>
+                            </div>
+                            <div class="fans" style="display: none;">
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+	                            <a><img src="https://static.xudazhu.cn/img/head_img/1.png" class="dynamic_head_img"></a>
+                            </div>
+                            <!-- <div class="video_star_message" style="display: block;">
+                                <div><span class="message">用户<a>xxx</a> 收藏了你的作品 <a>xxxx</a></span><span class="is_read">未读</span></div>
+                                <div><span class="message">用户<a>xxx</a> 收藏了你的作品 <a>xxxx</a></span><span class="is_read">未读</span></div>
+                                <div><span class="message">用户<a>xxx</a> 收藏了你的作品 <a>xxxx</a></span><span class="is_read">未读</span></div>
+                                <div><span class="message">用户<a>xxx</a> 收藏了你的作品 <a>xxxx</a></span><span class="is_read">未读</span></div>
+                                <div><span class="message">用户<a>xxx</a> 收藏了你的作品 <a>xxxx</a></span><span class="is_read">未读</span></div>
+                                <div class="end_message">没有更多消息</div>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="video_div" style="display: none;">
+                        <div class="video_all_num" style="line-height: 30px; margin-left: 10px;">共 0 个视频</div>
+                        <div class="videos" style="float: left; width: 100%; background-color: white;">
+                            <div class="video_a_div">
+                                <div class="video_a_div_img_div">
+                                    <a target="_blank" href="index" title="轮播图5">
+                                        <img src="https://static.xudazhu.cn/img/主站/主站视频封面3.jpg" class="img-rounded" alt="cover">
+                                    </a>
+                                </div>
+
+                                <div class="video_a_div_text">
+                                    <a class="video_title">视频标题1</a>
+                                    <span class="video_time">2018.9.9 12:13:15</span>
+                                    <span class="s_line"></span>
+                                    <a class="video_author">视频作者1</a>
+                                </div>
+                                <div class="video_info">
+                                    这是视频简介 this is viedo info这是视频简介 this is viedo info这是视频简介 this is viedo info这是视频简介 this is viedo info 这是视频简介 this is viedo info这是视频简介 this is viedo info这是视频简介 this is viedo info这是视频简介 this is viedo info
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="page_button">
+                            <table class="PagesTable table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <td id="user_video_pages" align="center">
+                                            <button class="btn btn-default btn-xs startsPage" type="button">首页</button>
+                                            <button class="btn btn-default  btn-xs lastPage" type="button">上一页</button>
+                                            <button class="button1 btn-default   btn btn-xs" type="button">1</button>
+                                            <button class="button2 btn-default  pageButton btn btn-xs" type="button">2</button>
+                                            <button class="button3 btn-default  pageButton btn btn-xs" type="button">3</button>
+                                            <button class="btn btn-default  btn-xs nextPage" type="button">下一页</button>
+                                            <button class="btn btn-default  btn-xs endPage" type="button">末页</button>
+                                            <button class="btn btn-default  btn-xs " type="button">共6页</button>
+                                            <input type="number" style="width: 70px;" class="btn btn-default  btn-xs inputPage" value="1">
+                                            <button style="width: 50px;" class="btn btn-default  btn-xs inputPageButton" type="button">Go!</button>
+                                            <select style="width: 85px; float: right; height: 23px;" class="form-control aPageNum btn-xs">
+                                                <option>10</option>
+                                                <option>10</option>
+                                                <option>20</option>
+                                                <option>50</option>
+                                                <option>100</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                    <div class="upload_div" style="display: none;">
+
+                        <div class="up_load1">
+                            <div style="position: relative; left: 0px; line-height:  43px;">请选择您要上传的视频(支持mp4,flv格式)(限50M内)</div>
+                            <input type="file" id="file" name="file" class="btn webuploader-element-invisible" multiple="multiple" accept=".mp4,.flv">
+                            <!--<input type="file" class="btn" id="file">-->
+                            <div class="file1">
+                                上传视频
+                            </div>
+                            <!--<div style="position: relative; top: -50px; text-align: center;">上传进度</div>-->
+
+                        </div>
+                        <div class="progress" style=" width: 350px;">
+						  <div class="progress-bar" role="progressbar" id="callback" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+						    60%
+						  </div>
+						</div>
+                        <div class="file_name" style="line-height: 30px;"></div>
+                        <!--上传成功后的返回内容<br>-->
+                        <div id="callback"></div>
+                        <div class="cover_div" style="height: 243px;">
+                            <div style="position: relative; left: 0px; line-height:  43px;">视频封面(限500K内)</div>
+                            <input type="file" id="cover" name="cover" class="btn webuploader-element-invisible" multiple="multiple" accept=".png">
+                            <!--<input type="file" class="btn" id="file">-->
+                            <img src="https://static.xudazhu.cn/img/user/选择前视频封面.png" class="cover1" id="cover1">
+                        </div>
+                        <div class="cover_name" style="line-height: 30px;"></div>
+
+                        <div style=" height: 80px;">
+                            <div style="line-height: 40px;">
+                                分区
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="secton" name="section" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">动画</button>
+                                <!--<span class="caret"></span>-->
+                                <ul class="dropdown-menu section_li" aria-labelledby="dropdownMenu1">
+                                    <!--<li>国创</li>-->
+                                </ul>
+                            </div>
+
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="subSection" name="subSection" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">综合</button>
+                                <!--<span class="caret"></span>-->
+                                <ul class="dropdown-menu subSection_li" aria-labelledby="dropdownMenu1">
+                                    <li>MAD-AMV</li>
+                                    <li>MMD-3D</li>
+                                    <li>短片-手书-配音</li>
+                                    <li>综合</li>
+                                </ul>
+                            </div>
+
+                            <div style="line-height: 40px;">
+                                &nbsp;
+                            </div>
+
+                            <div style="line-height: 40px;">
+                                视频标题
+                            </div>
+
+                            <input type="text" name="title" class="form-control" id="title" placeholder="视频标题" value="请编辑您的视频标题">
+
+                            <div style="line-height: 40px;">
+                                视频简介
+                            </div>
+
+                            <div data-v-5510361a="" data-v-7552fd13="" class="text-area-box-v2-container">
+                                <textarea data-v-5510361a="" name="info" id="info" maxlength="2000" class="text-area-box-v2-val placeholder-style" style="height: 120px;"></textarea>
+                                <p data-v-5510361a="" class="text-area-box-v2-max-tip">0/500</p>
+                            </div>
+
+                        </div>
+
+                        <input style="position: relative; top: 300px;" class="btn btn-default" type="button" id="submit" value="提交">
+
+                    </div>
+                    <div class="star_div" style="display: none;">待开发</div>
+                    <div class="setting_div" style="display: none;">
+                        <div>
+                            头像(点击头像可更换)(限200K内)
+                        </div>
+                        <div class="head_img_div">
+                            <input type="file" id="head_img_file" name="head_img_file" class="btn webuploader-element-invisible" multiple="multiple" accept=".png">
+                            <img class="head_img2" id="head_img2" src="https://static.xudazhu.cn/img/head_img/1.webp">
+                        </div>
+                        <div>
+                            昵称
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="nickname" id="nickname" maxlength="10" placeholder="您还没有昵称-.-" />
+                        </div>
+                        <div>
+                            性别
+                        </div>
+                        <div class="radio-inline" style="margin: 10px;">
+                            <label><input type="radio" class="sex" name="optionsRadios" id="optionsRadios1" value="option1" checked>男</label>
+                        </div>
+                        <div class="radio-inline" style="margin: 10px;">
+                            <label><input type="radio" class="sex" name="optionsRadios" id="optionsRadios2" value="option2">女</label>
+                        </div>
+                        <div class="radio-inline disabled" style="margin: 10px;">
+                            <label><input type="radio" class="sex" name="optionsRadios" id="optionsRadios3" value="option3" disabled>妖</label>
+                        </div>
+                        <div style="margin-top: 100px;">
+                            年龄
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" name="age" id="user_age" maxlength="10" placeholder="-.-" />
+                        </div>
+
+                        <div>
+                            个性签名
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="info" id="setting_user_info" maxlength="50" placeholder="您还没有写过个性签名-.-" />
+                        </div>
+
+                        <div id="changed"></div>
+                        <div>
+                            <button type="button" id="setting_submit" class="btn btn-default">保存</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="next3">
+                    <div style="width: 100%; height: 74px; background-image: url(https://static.xudazhu.cn/img/user/user1.png);"></div>
+                    <div class="section_user">
+                        <div class="item_uid">
+                            <div class="icon_uid"></div>
+                            <span class="text">261717574</span>
+                        </div>
+                        <div class="item_egtime">
+                            <span class="icon"></span>
+                            <span class="user_add_time">
+                              注册于 2017-12-8
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="user_info">
+        <img alt="easy" src="https://static.xudazhu.cn/img/head_img/1.png" style="width: 100px; height: 100px; float: left;" id="user_info_head_img">
+        <div style="float: left; height: 100px; width: 100px; margin-left: 8px;">
+            <div style="margin: 3px 0px;">
+                <span id="user_info_name">easy</span><span  class="icon"></span>
+                <span id="user_info_gender" class="icon gender  male" ></span>
+            </div>
+            <p id="user_info_fans" >关注 : 99  粉丝 : 99 </p>
+            <a id="user_info_title" title="网站上线啦 ! "><p id="user_info_info"> 网站上线啦 ! </p></a>
+        </div>
+            <button class="btn btn-xs btn-primary" id="user_info_star_button" style="margin-top: 5px;  margin-left: 80px;  width: 50px;" user_id="1" >关注</button>
+    </div>
+        
+    </body>
+
+</html>

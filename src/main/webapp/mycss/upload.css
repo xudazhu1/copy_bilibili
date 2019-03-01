@@ -1,0 +1,49 @@
+#progress {
+	/*top: -80px;*/
+	/*left: 130px;*/
+	height: 10px;
+	width: 250px;
+	border: 1px solid gold;
+	position: relative;
+	border-radius: 5px;
+}
+
+#progress .progress-item {
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: chartreuse;
+	border-radius: 5px;
+	transition: width .3s linear;
+}
+
+#file {
+	position: relative;
+	/*left: 120px;*/
+	width: 250px;
+	height: 70px;
+	border-radius: 36px;
+	background-color: cornflowerblue;
+	outline:none;
+}
+
+#file :focus {
+	/*border: ;*/
+	background-color: white;
+}
+
+.file1 {
+	color: white;
+	line-height: 70px;
+	font-size: x-large;
+	text-align: center;
+	pointer-events:none;
+	position: relative;
+	top: -70px;
+	/*left: 120px;*/
+	width: 250px;
+	height: 70px;
+	border-radius: 36px;
+	background-color: cornflowerblue;
+}

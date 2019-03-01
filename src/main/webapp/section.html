@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta name="referrer" content="webkit">
+		<meta charset="utf-8">
+		<title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+		<link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
+	</head>
+	<link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="mycss/section.css" />
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.cookie.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="myjs/utils.js"></script>
+    <script type="text/javascript"> $(function(){  $("#get_cookie").attr("src" , "https://api.xudazhu.cn/get_cookie.html") })</script>
+    <script type="text/javascript" src="myjs/nav.js"></script>
+    <script type="text/javascript" src="myjs/section.js"></script>
+
+	<body>
+        <iframe id="get_cookie" src='' width='0' height='0' style="display: none;"> </iframe>
+		<div class="img-rounded" style="display: none; z-index: 20;" id="temp1">
+			<table class="table">
+				<!-- <tr>
+					<td>
+						<div>
+							示例频道1
+						</div>
+					</td>
+				</tr> -->
+			</table>
+		</div>
+		
+		<div id="header1">
+            <div style="width: 100%; height: 45px;">
+                <div class="bg1 "></div>
+                <!-- <div class="bg2"></div> -->
+            </div>
+            <div id="nav_temp" class="img-rounded" style="display: none; height: 60px; width: 120px; padding: 18px 30px;">
+                <button type="button" id="logout" class="btn btn-xs btn-info">退出登陆</button>
+            </div>
+            <div class="nav_outer_div">
+                <div class="bg2"></div>
+                <div class="auto_width_div" style="width: 1180px; margin: 0px auto; top: 0px; height: 44px;"> 
+                    <table class="content-front " style="position:absolute; top: -44px;   height: 44px;  ">
+                        <tbody>
+                            <tr>
+                                <td class="header1_td" style="cursor: pointer;">
+                                    <a target="_self" href="index">
+                                        <div>
+                                            <i class="bili-icon"></i> 主站
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #画友
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #音频
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #游戏中心
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #直播
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #会员购
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #BML
+                                        </div>
+                                    </a>
+                                </td>
+                                <td class="header1_td">
+                                    <a>
+                                        <div>
+                                            #下载APP
+                                        </div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div target="_blank" href="user?div=nav_upload_div" style="float: right;">
+                        <a class="tg" id="tg" href="user?div=nav_upload_div" style="width: 55px; background-color: transparent;">
+                        <div class="tg">
+                            投稿
+                        </div>
+                        </a>
+                    </div>
+                    <table class="content-front" style="position: relative; top: -44px; float: right;   height: 44px; ">
+                    <tbody>
+                        <tr class="table_right_tr">
+                            <td class="header1_td">
+                                <a href="login">
+                                    <div>
+                                         &nbsp;登陆&nbsp;
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="register">
+                                    <div>
+                                        &nbsp;注册&nbsp;
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a target="_blank" href="history.html">
+                                    <div>
+                                        &nbsp;历史&nbsp;
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
+            </div>
+
+            <div class="biliImg"></div>
+            <div class="auto_width_div_out">
+                <div class="auto_width_div" style="width: 1180px;">
+                    <div id="search">
+                        <div class="search_div">
+                            <button id="search1" type="button" class="btn btn-default btn-sm">排行榜</button>
+                        </div>
+                        <div class="search2">
+                            <div class="search2_div">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for...">
+                                    <span class="input-group-btn">
+                                            <button class="btn btn-default " type="button">GO !</button>
+                                      </span>
+                                </div>
+                                <!-- /input-group -->
+                            </div>
+                            <!-- /.col-lg-6 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+		
+		<div class="auto_width_div" style="width: 1000px; margin: 0 auto;">
+		      <table class="table1 nav-a">
+                    <tbody><tr>
+                        <td style="background: rgba(255, 255, 255, 0.2);">
+                            <a href="index"><div style="line-height: 37px;">首页</div></a>
+                        </td>
+                        <td name="动画" style="background: rgba(255, 255, 255, 0.2);">
+                            <a href="section.动画"><div>999+<br>动画</div></a>
+                        </td>
+                        <td name="番剧">
+                            <a href="section.番剧"><div>999+<br>番剧</div></a>
+                        </td>
+                        <td name="国创">
+                            <a href="section.国创"><div>999+<br>国创</div></a>
+                        </td>
+                        <td name="音乐">
+                            <a href="section.音乐"><div>999+<br>音乐</div></a>
+                        </td>
+                        <td name="舞蹈">
+                            <a href="section.舞蹈"><div>999+<br>舞蹈</div></a>
+                        </td>
+                        <td name="游戏">
+                            <a href="section.游戏"><div>999+<br>游戏</div></a>
+                        </td>
+                        <td name="科技">
+                            <a href="section.科技"><div>999+<br>科技</div></a>
+                        </td>
+                        <td name="生活">
+                            <a href="section.生活"><div>999+<br>生活</div></a>
+                        </td>
+                        <td name="鬼畜">
+                            <a href="section.鬼畜"><div>999+<br>鬼畜</div></a>
+                        </td>
+                        <td name="时尚">
+                            <a href="section.时尚"><div>999+<br>时尚</div></a>
+                        </td>
+                        <td name="娱乐">
+                            <a href="section.娱乐"><div>999+<br>娱乐</div></a>
+                        </td>
+                        <td name="影视">
+                            <a href="section.影视"><div>999+<br>影视</div></a>
+                        </td>
+                        <td name="放映厅">
+                            <a href="section.放映厅"><div>999+<br>放映厅</div></a>
+                        </td>
+                        <td name="广告">
+                            <a><div>xxx+<br>广告</div></a>
+                        </td>
+                        <td name="专栏">
+                            <a><div>xxx+<br>专栏</div></a>
+                        </td>
+                        <td name="广场">
+                            <a><div>xxx+<br>广场</div></a>
+                        </td>
+                        <td name="直播">
+                            <a><div>xxx+<br>直播</div></a>
+                        </td>
+                        <td>
+                            <a><div>xxx+<br>小黑屋</div></a>
+                        </td>
+                        <td>
+                            &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+			<div class="auto_width_div_xm" style="width: 710px; float: left;">
+			<div class="location" style="margin-left: 10px;">
+                 <span>您的位置</span>
+                 <a href="index">主站</a> >
+                 <a href="section.">主站</a> >
+                 <a href="section?subSection=">主站</a> 
+             </div>
+			
+			
+				<div class="video_new" style="width: 100%; float: left;">
+					<div name="最新动态" style="width: 100%; float: left;">
+						<span class="icon1"></span>
+						<span class="name">最新动态</span>
+						<div class="read-push">
+							<i class="icon icon_read"></i>
+							<span class="info">换一换</span>
+						</div>
+					</div>
+
+					<div class="width_hide" style="width: 160px; height: 150px; float: left; margin: 10px;">
+						<a href="video" title="别点">
+							<img src="https://static.xudazhu.cn/img/主站/主站视频封面3.jpg" class="img-rounded img_xs" alt="cover" />
+							<p title="了解一下?" class="ranking1">了解一下?</p>
+						</a>
+					</div>
+					<div style="width: 160px; height: 150px; float: left; margin: 10px;">
+                        <a href="video" title="别点">
+                            <img src="https://static.xudazhu.cn/img/主站/主站视频封面3.jpg" class="img-rounded img_xs" alt="cover" />
+                            <p title="了解一下?" class="ranking1">了解一下?</p>
+                        </a>
+                    </div>
+                    <div style="width: 160px; height: 150px; float: left; margin: 10px;">
+                        <a href="video" title="别点">
+                            <img src="https://static.xudazhu.cn/img/主站/主站视频封面3.jpg" class="img-rounded img_xs" alt="cover" />
+                            <p title="了解一下?" class="ranking1">了解一下?</p>
+                        </a>
+                    </div>
+                    <div style="width: 160px; height: 150px; float: left; margin: 10px;">
+                        <a href="video" title="别点">
+                            <img src="https://static.xudazhu.cn/img/主站/主站视频封面3.jpg" class="img-rounded img_xs" alt="cover" />
+                            <p title="了解一下?" class="ranking1">了解一下?</p>
+                        </a>
+                    </div>
+                    <div style="width: 160px; height: 150px; float: left; margin: 10px;">
+                        <a href="video" title="别点">
+                            <img src="https://static.xudazhu.cn/img/主站/主站视频封面3.jpg" class="img-rounded img_xs" alt="cover" />
+                            <p title="别点" class="ranking1">空?</p>
+                        </a>
+                    </div>
+					
+
+				</div>
+				
+				
+
+				<div class="nav_videoList">
+					<div style="border-bottom: 2px solid blue;" >
+						<span  class="condition" name="up_date" style="color: black;">按投稿时间排序</span>
+					</div>
+					<div >
+						<span  class="condition" name="play_num" style="color: black;">按视频热度排序</span>
+					</div>
+					
+					
+
+					<span class="s-line"></span>
+
+					<div style="float: right;">
+						<a style="color: black;">原创</a>
+					</div>
+
+					<div style="float: right;">
+						<a style="color: black;">全部</a>
+					</div>
+
+				</div>
+
+				<div class="videos" style="float: left; width: 100%;">
+					<center><h1>暂无相关视频</h1></center>
+
+				</div>
+				
+				<table class="PagesTable table table-striped">
+                     <tbody>
+                         <tr>
+                         <td id="user_video_pages" align="center"></td>
+                         </tr>
+                     </tbody>
+                 </table>
+				
+
+			</div>
+
+			<div class="ranking" style="width: 260px; float: left; margin:  45px 10px;">
+				<div style="width: 260px; height: 24px;">
+					<span style="font-size: 18px; float: left; margin-right: 10px;">热门</span>
+					<span style="font-size: 14px; float: left; margin-right: 10px;">(此版块没铺数据--.--来自犯懒的easy)</span>
+					
+
+					<!--<a href=""><span style="font-size: 15px; float: left; margin: 0px 10px;">全部</span></a>
+					<a href=""><span style="font-size: 15px; float: left; margin: 0px 10px;">原创</span></a>
+
+					<div class="btn-group" style="float: right; height: 22px; line-height: 22px;">
+						<button type="button" class="btn btn-default btn-xs dropdown-toggle onfocus" data-toggle="dropdown" style="padd height: 22px;" aria-haspopup="true" aria-expanded="false">
+                                三日 <span class="caret"></span>
+                                </button>
+						<ul class="dropdown-menu" style="min-width: 50px;">
+							<li>
+								&nbsp;
+								<span class="nofocus">一周</span>
+							</li>
+						</ul>
+					</div>-->
+
+				</div>
+
+				<div style="margin: 20px 0px;">
+
+					<div class="rankingNum" style="height: 50px;">
+						<i class="ri-num1" style="float: left;">1</i>
+						<a href="video" target="_blank" title="【梓微】AOA-Miniskirt（还是这双鞋系列） 播放:121265 3:52" class="firstLine" style=" float: left; width: 230px;">
+							<div class="lazy-img ri-preview " style="width: 80px; float: left; ">
+								<img class="img-rounded" alt="【梓微】AOA-Miniskirt（还是这双鞋系列）" src="https://static.xudazhu.cn/img/主站/排行榜首图.webp">
+							</div>
+							<div class="ri-detail" style=" height: 100%;">
+								<p class="ri-title ranking1">【梓微】AOA-Miniskirt（还是这双鞋系列）</p>
+								<p class="ri-point" style="height: 12px;">综合评分：20.1万</p>
+							</div>
+							<div class="watch-later-trigger w-later"></div>
+						</a>
+					</div>
+
+					<div class="rankingNum">
+						<i class="ri-num1" style="float: left;">2</i>
+						<a href="video" target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+							<!---->
+							<div class="ri-detail">
+								<p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+								<p class="ri-point" style="display: none;">综合评分：80.8万</p>
+							</div>
+							<!---->
+						</a>
+					</div>
+
+					<div class="rankingNum">
+						<i class="ri-num1" style="float: left;">3</i>
+						<a href="video" target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+							<!---->
+							<div class="ri-detail">
+								<p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+								<p class="ri-point" style="display: none;">综合评分：80.8万</p>
+							</div>
+							<!---->
+						</a>
+					</div>
+
+					<div class="rankingNum">
+						<i class="ri-num1" style="float: left;">4</i>
+						<a href="video" target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+							<!---->
+							<div class="ri-detail">
+								<p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+								<p class="ri-point" style="display: none;">综合评分：80.8万</p>
+							</div>
+							<!---->
+						</a>
+					</div>
+
+					<div class="rankingNum">
+						<i class="ri-num1" style="float: left;">5</i>
+						<a href="video" target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+							<!---->
+							<div class="ri-detail">
+								<p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+								<p class="ri-point" style="display: none;">综合评分：80.8万</p>
+							</div>
+							<!---->
+						</a>
+					</div>
+
+					<div class="rankingNum">
+						<i class="ri-num1" style="float: left;">6</i>
+						<a href="video" target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+							<!---->
+							<div class="ri-detail">
+								<p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+								<p class="ri-point" style="display: none;">综合评分：80.8万</p>
+							</div>
+							<!---->
+						</a>
+					</div>
+
+					<div class="rankingNum">
+						<i class="ri-num1" style="float: left;">7</i>
+						<a href="video" target="_blank" title="【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话） 播放:315524 29:04" class="ri-info-wrap clearfix otherLine" style=" float: left; width: 230px;">
+							<!---->
+							<div class="ri-detail">
+								<p class="ri-title ranking2">【嘟督中配】最令人羞羞的《底特律：变密》一人役（第五话）</p>
+								<p class="ri-point" style="display: none;">综合评分：80.8万</p>
+							</div>
+							<!---->
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</body>
+
+
+</html>

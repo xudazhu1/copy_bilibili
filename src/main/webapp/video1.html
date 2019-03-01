@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta name="referrer" content="webkit">
+        <meta charset="utf-8">
+        <title>视频播放-哔哩哔哩·假</title>
+        <link rel="shortcut icon" href="//static.hdslb.com/images/favicon.ico">
+
+    </head>
+    <link rel="stylesheet" href="css/bootstrap.css" />
+    <link rel="stylesheet" href="mycss/video.css" />
+    <link rel="stylesheet" href="css/DPlayer.min.css" />
+    <link rel="stylesheet" href="mycss/nav.css" />
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery.cookie.js"></script> -->
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/flv.js"></script>
+    <script type="text/javascript" src="js/DPlayer.min.js"></script>
+    <script type="text/javascript" src="myjs/utils.js"></script>
+    <script type="text/javascript"> $(function(){  $("#get_cookie").attr("src" , "https://api.xudazhu.cn/get_cookie.html") })</script>
+    <script type="text/javascript" src="myjs/nav.js" ></script>
+    <script type="text/javascript" src="myjs/player.js"></script>
+    <script type="text/javascript" src="myjs/video.js"></script>
+
+    <body>
+        <iframe id="get_cookie" src='' width='0' height='0' style="display: none;"> </iframe>
+        <div style="height: 44px; border-bottom: 1px solid #e5e9ef;">
+            <div class="nav_top">
+            <div id="nav_temp" style="display: none; height: 60px; width: 120px; padding: 18px 30px;" >
+                <button type="button" id="logout" class="btn btn-xs btn-info">退出登陆</button>
+            </div>
+                <table class="content-front table_left">
+                    <tbody>
+                        <tr>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        <i class="bili-icon"></i> 主站
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        画友
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        音频
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        游戏中心
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        直播
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        会员购
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        BML
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="index">
+                                    <div>
+                                        下载APP
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="user?div=nav_upload_div" class="up">
+                    <div class="tg">
+                        投稿
+                    </div>
+                </a>
+
+                <table class="content-front table_right">
+                    <tbody>
+                        <tr class="table_right_tr">
+                            <td class="header1_td">
+                                <a class="login_hint" href="login">
+                                    <div>
+                                        &nbsp;登陆&nbsp;
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="register">
+                                    <div>
+                                        &nbsp;注册&nbsp;
+                                    </div>
+                                </a>
+                            </td>
+                            <td class="header1_td">
+                                <a href="history.html">
+                                    <div>
+                                        &nbsp;历史&nbsp;
+                                    </div>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+        <div style="    margin: 20px auto; width: 1200px;">
+
+            <div class="video_div">
+                <div id="dplayer"></div>
+                <div class="videoinfo">
+                    <h4 class="video_title">那年和她看过的电影</h4>
+                    <p class="play_num">17.0万播放</p>
+                    <p class="up_date">上传时间 : 2016-12-27 04:45:29</p>
+
+                    <span class="glyphicon glyphicon-thumbs-up video_praise_button" aria-hidden="true" style="font-size: 24px; cursor: pointer;"></span>
+                    <span > 9999 </span>
+                    
+                    <span class="glyphicon glyphicon-star-empty video_star_button" aria-hidden="true" style="font-size: 24px; cursor: pointer;"></span>
+                    <span > 9999 </span>
+                    
+                    <!--<span class="glyphicon glyphicon-star" aria-hidden="true" style="font-size: 24px; cursor: pointer;"></span>
+                    <span > 99 </span>-->
+                    <div style="height: 10px;"></div>
+                    
+                </div>
+                
+                <div class="author_div">
+                    <div class="head_img2">
+                        <a>
+                        <img src="https://static.xudazhu.cn/img/head_img/head_img.webp"  class="head_img_img" />
+                        </a>
+                    </div>
+                    <p><a target="_blank" class="video_author_nickname">easy</a><br /><a class="video_author_info">她会有多幸运</a></p>
+                    
+                    <p class="video_info">又梦见你了啊</p>
+                </div>
+                
+                <div class="discuss">
+                    <div style="height: 50px;">
+                        <h4 class="discuss_num" style="float: left;">233 评论</h4>
+                        <a style="float: right; margin-top: 10px;">查看删除日志</a>
+                    </div>
+                    <div class="discuss_title">
+                        <h5>全部评论</h5>
+                        <h5>按热度排序</h5>
+                        <a>下一页</a>
+                        <a>5</a>
+                        <a>4</a>
+                        <a>3</a>
+                        <a>2</a>
+                        <a>1</a>
+                        <a>上一页</a>
+                        <span>共12页</span>
+                    </div>
+                    <div id="my_discuss_div_hint"><a class="login_hint" href="login?url=video?video_ID=">请登录后 再评论</a></div>
+                    <div class="discuss_floor" id="my_discuss_div" style="display: none;">
+                        <div class="head_img1">
+                            <a>
+                            <img src="https://static.xudazhu.cn/img/head_img/head_img.webp"  class="head_img_img my_head_img" />
+                            </a>
+                        </div>
+                        
+                        <div class="discuss_info_right " id="discuss_input1_div">
+                            <textarea  data-v-5510361a="" name="discuss_input" id="discuss_input" maxlength="400" class="form-control text-area-box-v2-val placeholder-style discuss_input" style="float: left; height: 90px; width: 85%;" placeholder="请自觉遵守互联网相关的政策法规，严禁发布色情、暴力、反动的言论。"></textarea>
+                            <button type="button" style="float: left; width: 14%; height: 90px; margin-left: 3px;" class="btn btn-info btn-default discuss_submit">发布评论</button>
+                        </div>  
+                    </div>
+                    
+                    
+                    <div class="discuss_info" style="float: left;">
+                        
+                        
+                        <div class="discuss_floor">
+                            <div class="head_img1">
+                                <a>
+                                <img src="https://static.xudazhu.cn/img/head_img/head_img.webp"  class="head_img_img" />
+                                </a>
+                            </div>
+                            
+                            <div class="discuss_info_right">
+                                <p><a>评论人</a></p>
+                                <p>评论内容播放 2017-17.0万播放 2017-08-2317.0万播放 2017-08-23 04:45:29 04:45:2908-23 04:45:29简介</p>
+                                <p>#27  &nbsp;2017-10-30 12:16</p>
+                            </div>  
+                        </div>
+                        
+                    </div>
+                    <table class="table">
+                    <tr>
+                        <td id="video_discuss_pages" align="center">
+                        </td>
+                    </tr>
+                    </table>
+                    
+                </div>
+                
+            </div>
+            <div class="video_right">
+                <div class="danmu_div" style="height: 520px;">
+                    <div class="danmu_head">
+                        <span style="font-size: 25px; margin-left: 10px;">弹幕列表</span>
+                        <span style="float: right; margin-right: 10px;">展开/收起</span>
+                    </div>
+                    <div style="height: 480px; overflow: auto;">
+                        <table class="table table-condensed danmu_table">
+                            <tr>
+                                <th>时间</th>
+                                <th>弹幕内容</th>
+                                <th>弹幕作者</th>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <div id="user_info">
+        <img alt="easy" src="https://static.xudazhu.cn/img/head_img/1.png" style="width: 100px; height: 100px; float: left;" id="user_info_head_img">
+        <div style="float: left; height: 100px; width: 100px; margin-left: 8px;">
+	        <div style="margin: 3px 0px;">
+	            <span id="user_info_name">easy</span><span  class="icon"></span>
+	            <span id="user_info_gender" class="icon gender  male" ></span>
+	        </div>
+	        <p id="user_info_fans" >关注 : 99  粉丝 : 99 </p>
+	        <a id="user_info_title" title="网站上线啦 ! "><p id="user_info_info"> 网站上线啦 ! </p></a>
+        </div>
+	        <button class="btn btn-xs btn-primary" id="user_info_star_button" style="margin-top: 5px;  margin-left: 80px;  width: 50px;" user_id="1" >关注</button>
+    </div>
+    </body>
+    
+
+</html>

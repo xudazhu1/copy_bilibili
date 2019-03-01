@@ -1,0 +1,312 @@
+.dplayer {
+	/*width: 75%;*/
+	/*height: 800px;*/
+}
+
+xmp {
+    /* width: 100%; */
+    white-space: normal;
+    margin: 0px;
+    font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+.video_author_nickname {
+	    line-height: 25px;
+}
+
+.author_div {
+	height: 130px;
+	border-bottom: 1px solid #e5e9ef;
+}
+
+
+
+.video_div {
+	float: left;
+	width: 75%;
+	/* width: 940px; */
+	/* height: 600px; */
+}
+
+.videoinfo {
+	margin: 30px 0px;
+	border-top: 1px solid #e5e9ef;
+	border-bottom: 1px solid #e5e9ef;
+}
+
+.videoinfo span {
+	margin-right: 10px;
+}
+
+.discuss_floor {
+	width: 100%;
+	float: left;
+	border-bottom: 1px solid #e5e9ef;
+}
+
+.discuss_info_right {
+	float: left;
+	margin: 20px;
+	width: 85%;
+}
+
+.dplayer {
+	height: 500px;
+}
+
+
+.subdiscuss_info_right {
+    float: left;
+    margin: 10px;
+    width: 75%;
+}
+
+.subdiscuss_head_img {
+	margin-top: 12px;
+}
+
+.discuss_info {
+	width: 100%;
+}
+
+.head_img2 {
+	margin: 0px 10px;
+	float: left;
+	height: 100%;
+	width: 40px;
+}
+
+.head_img2 img {
+	float: left;
+	width: 36px;
+	height: 36px;
+	border-radius: 50%;
+}
+
+.head_img1 {
+	margin: 10px;
+	float: left;
+	height: 100%;
+	width: 57px;
+}
+
+.head_img_xs {
+    margin: 10px;
+    float: left;
+    height: 100%;
+    width: 30px;
+}
+
+.head_img1 img {
+	margin-top: 20px;
+	float: left;
+	height: 57px;
+	width: 57px;
+	border-radius: 50%;
+}
+
+.glyphicon:hover {
+	color: blue;
+	cursor: pointer;
+}
+
+body {
+	/*background-color: rgb(244, 245, 247);*/
+	font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+body,
+button,
+input,
+select,
+textarea {
+	font: 12px Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+.logo_blue {
+	left: 18px;
+	top: 18px;
+	line-height: 50px;
+	width: 70px;
+	height: 32px;
+	background: url(https://static.xudazhu.cn/img/video/logo_blue.png) no-repeat;
+	background-size: contain;
+}
+
+.nav1 {
+	text-align: center;
+	border-bottom: 1px solid #e5e9ef;
+	height: 50px;
+	width: 100%;
+}
+
+.nav1 div {
+	color: black;
+}
+
+#my_discuss_div_hint {
+	text-align: center; 
+	font-size: 30px; 
+	margin: 10px; 
+	border-bottom: 1px solid #e5e9ef;
+	padding-bottom: 10px;
+}
+
+.discuss_title span {
+	float: right;
+	margin-top: 15px;
+}
+
+.discuss_title a {
+	float: right;
+	margin-left: 10px;
+	margin-top: 15px;
+}
+
+.discuss_title h5 {
+	margin-right: 20px;
+	float: left;
+}
+
+.discuss_title {
+	border-bottom: 1px solid #e5e9ef;
+	height: 40px;
+}
+
+.discuss_add_time {
+	margin: 20px 0px 0px 0px;
+}
+
+.nav_left {
+	float: left;
+	margin-left: 13%;
+	line-height: 50px;
+	width: 22%;
+}
+
+.addSubdiscuss {
+	border: 0px;
+	margin-left: 10px;
+	position: relative;
+	top: -2px;
+}
+
+.subdiscuss_div {
+    float: left;
+    /* margin: 0px 20px; */
+    width: 100%;
+    }
+    
+.subdiscuss_div_a {
+	float: left;
+	width: 100%;
+}
+
+.subdiscuss_account {
+	margin-right: 10px;
+	margin-bottom: 5px;
+}
+
+.subdiscuss_name_info {
+	margin-bottom: 10px;
+}
+
+a {
+	color: black;
+	cursor: pointer;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.nav_right {
+	float: right;
+	margin-right: 14%;
+	line-height: 50px;
+	width: 19%;
+}
+
+.search_video {
+	margin-left: 15%;
+	position: relative;
+	top: 10px;
+	width: 250px;
+	float: left;
+	display: block;
+	background-color: #fff;
+	border-radius: 16px;
+	padding-right: 30px;
+	height: 30px;
+	transition: border-color .2s;
+	border: 1px solid #ccd0d7;
+}
+
+.nav-search-keyword {
+	outline: none;
+	width: 180px;
+	float: left;
+	color: #99a2aa;
+	font-size: 12px;
+	overflow: hidden;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 0 0 10px;
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+	transition: width .2s;
+}
+
+.nav-search-submit {
+	outline: none;
+	display: block;
+	position: relative;
+	top: -2px;
+	left: 38px;
+	width: 30px;
+	min-width: 0;
+	/*cursor: pointer;*/
+	height: 32px;
+	background: url(https://static.xudazhu.cn/img/icons.png) -786px -721px;
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+
+/*右边*/
+
+.video_right {
+	margin-left: 2%;
+	float: left;
+	width: 23%;
+}
+
+.danmu_head {
+	border-radius: 3px;
+	width: 100%;
+	line-height: 46px;
+	height: 46px;
+	background-color: rgb(244, 245, 247);
+}
+
+.danmu_table tr {
+	    cursor: pointer;
+}
+
+.danmu_table tr :hover{
+	    background-color: #00B5E5;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="js/jquery.cookie.js"></script>
+		<script type="text/javascript">
+		
+		
+
+			function clearCookie(){
+			    var date=new Date(1);
+			    //date.setTime(date.getTime()-10000);
+			    var keys=document.cookie.match(/[^ =;]+(?=\=)/g);
+			    if (keys) {
+			        for (var i =  keys.length; i--;)
+			        	document.cookie = keys[i] + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+			    }
+			}
+		
+		  $(function(){
+			  console.log(document.referer)
+              var back_cookie = window.location.toString().substring(window.location.toString().indexOf("?")+1);
+			  console.log("back cookie --> " + back_cookie)
+              
+			  clearCookie();
+
+              var exp = new Date();
+              exp.setTime(exp.getTime() + 130 * 24 * 60 * 60 * 1000); //130天过期
+              document.cookie = "SESSION" + "=" + back_cookie
+                      + ";expires=" + exp.toGMTString() + ";path=/";
+              document.cookie = "EASY-SESSION" + "=" + back_cookie
+                      + ";expires=" + exp.toGMTString() + ";path=/";
+		  })
+		</script>
+	</head>
+	<body>
+	
+	</body>
+</html>
