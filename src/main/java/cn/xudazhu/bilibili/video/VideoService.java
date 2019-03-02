@@ -54,28 +54,24 @@ public class VideoService {
      * @param condition 排序属性名
      * @return 返回查到的video集合
      */
-    public  List<VideoBean> getVideo(Map<Object, Object> map, Integer aPageNum, Integer pageNum, String condition) {
-        if ( condition == null ) {
+    public List<VideoBean> getVideo(Map<Object, Object> map, Integer aPageNum, Integer pageNum, String condition) {
+        if (condition == null) {
             condition = "id";
         }
         VideoBean videoBean = new VideoBean();
-        Boolean populate = MyBeanUtils.populate(videoBean, map);
-        if (populate) {
-            if (map.size() == 0) {
-                Page<VideoBean> videoAll = videoDao.findAll(PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
-                return videoAll.getContent();
-            } else {
-                Page<VideoBean> videoBeans = videoDao.findAll(Example.of(videoBean), PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
-                String id = "id";
-                if ( map.get(id) != null ) {
-                    VideoBean videoBean1 = videoBeans.getContent().get(0);
-                    videoBean1.setPlayNum(videoBean1.getPlayNum() + 1 );
-                    videoDao.save(videoBean1);
-                }
-                return videoBeans.getContent();
-            }
+        MyBeanUtils.populate(videoBean, map);
+        if (map.size() == 0) {
+            Page<VideoBean> videoAll = videoDao.findAll(PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            return videoAll.getContent();
         } else {
-            return new ArrayList<>();
+            Page<VideoBean> videoBeans = videoDao.findAll(Example.of(videoBean), PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            String id = "id";
+            if (map.get(id) != null) {
+                VideoBean videoBean1 = videoBeans.getContent().get(0);
+                videoBean1.setPlayNum(videoBean1.getPlayNum() + 1);
+                videoDao.save(videoBean1);
+            }
+            return videoBeans.getContent();
         }
 
     }
@@ -168,19 +164,20 @@ public class VideoService {
 
     /**
      * 传入条件 返回符合条件的总数
-     *查询for 大分区
+     * 查询for 大分区
+     *
      * @param map 条件
      * @return 数量
      */
     List<VideoBean> getVideo4sectionId(Map<Object, Object> map, int aPageNum, int pageNum, String condition) {
         String sectionId = (String) map.get("sectionId");
-        if( sectionId == null ) {
-            return  new ArrayList<>();
+        if (sectionId == null) {
+            return new ArrayList<>();
         }
         SubsectionBean subsectionBean = new SubsectionBean();
         subsectionBean.setSectionId(Integer.parseInt(sectionId));
         List<SubsectionBean> subsectionBeans = subsectionDao.findAll(Example.of(subsectionBean));
-        return   videoDao.findAllBySubsectionBeanIn(subsectionBeans, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+        return videoDao.findAllBySubsectionBeanIn(subsectionBeans, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
 
     }
 }

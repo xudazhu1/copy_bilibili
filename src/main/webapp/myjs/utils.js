@@ -488,11 +488,11 @@ function format_subdiscuss_html( subdiscuss) {
 	return "<div class='subdiscuss_div_a'>" +
 		"<div class='subdiscuss_floor subdiscuss_div_left'>" +
 		"<div class='head_img2 '>" +
-		"<a><img src='https://static.xudazhu.cn/img/head_img/"+subdiscuss.videoBean.headImg+".png' user_id='"+subdiscuss.videoBean.account_ID+"' id='subdiscuss_head_img_"+subdiscuss.id+"'  class='head_img_img  subdiscuss_head_img'> </a>" +
+		"<a><img src='https://static.xudazhu.cn/img/head_img/"+subdiscuss.userBean.headImg+".png' user_id='"+subdiscuss.userBean.accountId+"' id='subdiscuss_head_img_"+subdiscuss.id+"'  class='head_img_img  subdiscuss_head_img'> </a>" +
 		"</div>" +
 		"<div class='subdiscuss_info_right ' id='discuss_input1_div'>" +
-		"<div class='subdiscuss_name_info'><span class='subdiscuss_account'>"+subdiscuss.videoBean.nickname+" 回复 "+subdiscuss.target_json.nickname+" : </span><span>"+subdiscuss.info+"</span></div>" +
-		"<div ><span>"+formatDate(new Date(subdiscuss.add_time.time))+"</span>" +
+		"<div class='subdiscuss_name_info'><span class='subdiscuss_account'>"+subdiscuss.userBean.nickname+" 回复 "+subdiscuss.targetUserBean.nickname+" : </span><span>"+subdiscuss.info+"</span></div>" +
+		"<div ><span>"+formatDate(new Date(subdiscuss.addTime.time))+"</span>" +
 		"<span style='font-size: 17px; margin: 0px 10px; color: black;' subdiscuss_id='"+subdiscuss.id+"'  id ='subdiscuss_button_"+subdiscuss.id+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
 //		"<span style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.id})+";' subdiscuss_ID='"+subdiscuss.id+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
 		"<span calss='subdiscuss_praise_num ' id ='subdiscuss_num_"+subdiscuss.id+"' subdiscuss_id='"+subdiscuss.id+"'>0</span>" +

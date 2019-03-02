@@ -33,7 +33,7 @@ function window_scroll() {
         } else {
             $(".bg2").css("background", "#F9F9F9")
         }
-        if ($(window).scrollTop() >= 148) {
+        if ($(window).scrollTop() >= 145) {
             $(".scrop_hide").show();
             $(".nav-a td").css("padding", "0px 0px")
             var section_out_div = $(".section_out_div");

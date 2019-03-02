@@ -1,10 +1,9 @@
 package cn.xudazhu.bilibili.discuss;
 
+import cn.xudazhu.bilibili.account.AccountBean;
 import cn.xudazhu.bilibili.utils.FormatMap;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
@@ -33,6 +32,24 @@ public class DiscussController {
         int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
         Map<Object, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
         return discussService.getDiscuss(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition"))).toString();
+
+    }
+
+    @PostMapping
+    public String addSubDiscuss(@RequestParam Map<String , Object> map , HttpServletRequest request) {
+        String account = "account";
+        if (request.getSession().getAttribute(account) == null) {
+            return "";
+        }
+        map.put("userBeanId", ((AccountBean) request.getSession().getAttribute("account")).getId() + "");
+        Boolean addDiscuss = discussService.addDiscuss(map);
+        if (addDiscuss) {
+            System.out.println("添加评论 = " + map);
+            return "添加评论成功";
+        } else {
+            return "添加评论失败";
+        }
+
 
     }
 

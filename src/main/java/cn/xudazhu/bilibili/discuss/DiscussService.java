@@ -1,18 +1,21 @@
 package cn.xudazhu.bilibili.discuss;
 
+import cn.xudazhu.bilibili.user.UserBean;
+import cn.xudazhu.bilibili.user.UserDao;
 import cn.xudazhu.bilibili.utils.MyBeanUtils;
+import cn.xudazhu.bilibili.video.VideoBean;
+import cn.xudazhu.bilibili.video.VideoDao;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @author xudaz
@@ -50,19 +53,19 @@ public class DiscussService {
         String videoId = "videoBeanId";
         if (map.get(videoId) != null) {
             int i = Integer.parseInt((String) map.get(videoId));
-            discussBeanList = discussDao.getAllByVideoBeanId( i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            discussBeanList = discussDao.findAllByVideoBeanId( i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
             allNum = discussDao.countAllByVideoBeanId(i);
         }
         String userBeanId = "userBeanId";
         if (map.get(userBeanId) != null) {
             int i = Integer.parseInt((String) map.get(userBeanId));
-            discussBeanList = discussDao.getAllByUserBeanAccountId( i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            discussBeanList = discussDao.findAllByUserBeanAccountId( i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
             allNum = discussDao.countAllByUserBeanAccountId(i);
         }
         String targetUserBeanId = "targetUserBeanId";
         if (map.get(targetUserBeanId) != null) {
             int i = Integer.parseInt((String) map.get(targetUserBeanId));
-            discussBeanList = discussDao.getAllByTargetUserBeanAccountId(i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            discussBeanList = discussDao.findAllByTargetUserBeanAccountId(i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
             allNum = discussDao.countAllByTargetUserBeanAccountId(i);
         }
         DiscussBean discussBean = new DiscussBean();
@@ -89,16 +92,47 @@ public class DiscussService {
 
     }
 
-//    Long getDiscussNum(Map<Object, Object> map) {
-//        DiscussBean discussBean = new DiscussBean();
-//        Boolean populate = MyBeanUtils.populate(discussBean, map);
-//        if (!populate) {
-//            return 0L;
-//        }
-//        if (map.size() == 0) {
-//            return discussDao.count();
-//        } else {
-//            return discussDao.count(Example.of(discussBean));
-//        }
-//    }
+    /**
+     * videoDao property
+     */
+    private VideoDao videoDao;
+
+    @Autowired
+    public void setVideoDao(VideoDao videoDao) {
+        this.videoDao = videoDao;
+    }
+
+    /**
+     * userDao property
+     */
+    private UserDao userDao;
+
+    @Autowired
+    public void setUserDao(UserDao userDao) {
+        this.userDao = userDao;
+    }
+
+
+    Boolean addDiscuss(Map<String, Object> map) {
+        try {
+            DiscussBean discussBean = new DiscussBean();
+            discussBean.setInfo((String) map.get("info"));
+            discussBean.setAddTime(new Date());
+            String userBeanId = "userBeanId";
+            Optional<UserBean> userBeanById = userDao.findById(Integer.parseInt((String) map.get(userBeanId)));
+            discussBean.setUserBean(userBeanById.orElse(null));
+            String videoBeanId = "videoBeanId";
+            Optional<VideoBean> videoBeanById = videoDao.findById(Integer.parseInt((String) map.get(videoBeanId)));
+            discussBean.setVideoBean(videoBeanById.orElse(null));
+            Optional<UserBean> targetUserBeanById = userDao.findById(videoBeanById.orElse(null).getUserBean().getAccountId());
+            discussBean.setTargetUserBean(targetUserBeanById.orElse(null));
+            DiscussBean save = discussDao.save(discussBean);
+            return save != null;
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            return  false;
+        }
+
+    }
+
 }

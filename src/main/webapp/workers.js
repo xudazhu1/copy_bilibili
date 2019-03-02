@@ -13,26 +13,6 @@ onmessage = function(event){
 
 
 
-function format_subdiscuss_html( subdiscuss) {
-	return "<div class='subdiscuss_div_a'>" +
-		"<div class='subdiscuss_floor subdiscuss_div_left'>" +
-		"<div class='head_img2 '>" +
-		"<a><img src='https://static.xudazhu.cn/img/head_img/"+subdiscuss.account_json.head_img+".png' user_id='"+subdiscuss.account_json.account_ID+"' class='head_img_img my_head_img subdiscuss_head_img'> </a>" +
-		"</div>" +
-		"<div class='subdiscuss_info_right ' id='discuss_input1_div'>" +
-		"<div class='subdiscuss_name_info'><span class='subdiscuss_account'>"+subdiscuss.account_json.nickname+" 回复 "+subdiscuss.target_json.nickname+" : </span><span>"+subdiscuss.info+"</span></div>" +
-		"<div ><span>"+formatDate(new Date(subdiscuss.add_time.time))+"</span>" +
-		"<span style='font-size: 17px; margin: 0px 10px; color: black;' subdiscuss_id='"+subdiscuss.ID+"'  id ='subdiscuss_button_"+subdiscuss.ID+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
-//		"<span style='font-size: 17px; margin: 0px 10px; color: "+get_praise_star_has("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.ID})+";' subdiscuss_ID='"+subdiscuss.ID+"' class='glyphicon glyphicon-thumbs-up subdiscuss_praise_button'></span>" +
-		"<span calss='subdiscuss_praise_num ' id ='subdiscuss_num_"+subdiscuss.ID+"' subdiscuss_id='"+subdiscuss.ID+"'>0</span>" +
-//		"<span calss'praise_num'>"+get_praise_star_num("subdiscuss_praise/num", {"subDiscuss_ID":subdiscuss.ID})+"</span>" +
-		"<button class='btn btn-default btn-xs addSubdiscuss' name='discuss_ID="+subdiscuss.discuss_json.ID+"&account_ID="+subdiscuss.account_ID+"'>回复</button>" +
-		"</div>";
-	
-}
-
-
-
 function message_string( object ) {
 	console.log(object)
 //	var event = JSON.parse(event1);
@@ -51,10 +31,10 @@ function message_string( object ) {
 	}
 	if ( account === "from_account" ) {
 		message_string1 = ( "<span class='message'>"+  fomatMessage(type, message) +"</span>" +
-				"<span class='add_time'>"+formatDate(new Date(message.add_time.time))+"</span>");
+				"<span class='addTime'>"+formatDate(new Date(message.add_time.time))+"</span>");
 	} else {
 		message_string1 = ( "<span class='message'>"+  fomatMessage(type, message) +"</span>" +
-				"<a class='is_read' r_type_id='"+type2+"?"+message.ID+"'>"+is_read+"</a ><span class='add_time'>"+formatDate(new Date(message.add_time.time))+"</span>");
+				"<a class='is_read' r_type_id='"+type2+"?"+message.ID+"'>"+is_read+"</a ><span class='addTime'>"+formatDate(new Date(message.add_time.time))+"</span>");
 	}
 //	postMessage(message_string1);
 	return  message_string1;

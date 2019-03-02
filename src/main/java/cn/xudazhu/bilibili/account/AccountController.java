@@ -64,11 +64,10 @@ public class AccountController {
     @PostMapping("login")
     public String login ( AccountBean accountBean , HttpServletRequest request , HttpServletResponse response ) {
         try {
-            AccountBean login = accountService.login(accountBean);
-            if (login != null) {
-                System.out.println(login.getId() + "号用户登陆");
-                request.getSession().setAttribute("account" , accountBean);
-                request.getSession().setAttribute("account", login);
+            AccountBean loginAccountBean = accountService.login(accountBean);
+            if (loginAccountBean != null) {
+                System.out.println(loginAccountBean.getId() + "号用户登陆");
+                request.getSession().setAttribute("account", loginAccountBean);
                 Cookie cookie2 = CookieUtils.getCookie(request, "SESSION");
                 assert cookie2 != null;
                 System.out.println(" cookie  = " + cookie2.getName() + " : " + cookie2.getValue());

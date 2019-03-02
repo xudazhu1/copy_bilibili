@@ -138,19 +138,17 @@ function show_page_button1(discuss_a_page_num, discuss_page, discuss_all_page_nu
 
 //铺单个子评论 传入参数是 .subdiscuss_div 的jQuery对象
 function show_subdiscuss4discuss(subdiscuss_div) {
-    subdiscuss_div.empty();
     var name1 = subdiscuss_div.attr("name");
     console.log(name1)
-    var discuss_ID = name1.split("&")[0].split("=")[1];
+    var discussBeanId = name1.split("&")[0].split("=")[1];
     var data_temp = new Object;
-    data_temp["discuss_ID"] = discuss_ID;
+    data_temp["discussBeanId"] = discussBeanId;
     data_temp["a_page_num"] = subdiscuss_a_page_num;
     data_temp["page_num"] = subdiscuss_page;
     $.get("c_subdiscuss", data_temp, function (data) {
+        subdiscuss_div.empty();
         $(data.subdiscuss_data).each(function (index, subdiscuss) {
-//				workers_utils("format_subdiscuss_html", subdiscuss , function(evt){
             subdiscuss_div.append(format_subdiscuss_html(subdiscuss))
-//					$("#subdiscuss_head_img_" + subdiscuss.ID).attr("src" , "https://static.xudazhu.cn/img/head_img/"+subdiscuss.account_json.head_img+".png")
             //是否已赞
             $.get("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.ID}, function (data) {
                 $("#subdiscuss_button_" + subdiscuss.ID).css("color", data);
@@ -250,25 +248,17 @@ $(function () {
     //评论翻页按钮注册完毕
 
 
-    //如果已登录用户 设置评论框可见
-
     var url1 = decodeURIComponent(window.location.href);
     var login_url = url1.substring(url1.lastIndexOf('.') + 1, url1.length);
     $(".login_hint").attr("href", "login?url=video." + login_url);
-    // $.get("c_user" , function( data ) {
-    // 	if ( ! $.isEmptyObject(data) ) {
-    // 		$("#my_discuss_div_hint").hide();
-    // 		$("#my_discuss_div").show();
-    // 	}
-    // } , "json")
 
     //发布评论
     $(".discuss_submit").click(function () {
 //		alert($(this).prev("textarea")[0].value)
         var discussData = new Object;
         discussData["info"] = $(this).prev("textarea")[0].value;
-        discussData["account_ID"] = userData.account_ID;
-        discussData["videoId"] = videoData.ID;
+        discussData["userBeanId"] = userData.accountId;
+        discussData["videoBeanId"] = videoData.id;
         $.post("c_discuss", discussData, function (data) {
             alert(data);
             //提交完评论 调用刷新评论方法
@@ -325,19 +315,15 @@ $(function () {
         var discuss_ID = attr_name.split("&")[0].split("=")[1];
         var account_ID = userData.ID;
         var obj_ID = attr_name.split("&")[1].split("=")[1];
-//		alert("discuss_ID = " + discuss_ID)
-//		alert("obj_ID = " + obj_ID)
         var subdiscuss_info = $(this).prev()[0].value;
         if (subdiscuss_info == "" || subdiscuss_info.length === 0) {
             alert("评论框内没有内容");
             return false;
         }
-        //discuss_ID=55&account_ID=15
-//		alert("发1送")
         var subdiscuss_data_temp = new Object;
-        subdiscuss_data_temp["discuss_ID"] = discuss_ID;
-        subdiscuss_data_temp["account_ID"] = account_ID;
-        subdiscuss_data_temp["obj_ID"] = obj_ID;
+        subdiscuss_data_temp["discussId"] = discuss_ID;
+        subdiscuss_data_temp["userBeanId"] = account_ID;
+        subdiscuss_data_temp["targetUserBeanId"] = obj_ID;
         subdiscuss_data_temp["info"] = subdiscuss_info;
 //		alert("发送")
         $.post("c_subdiscuss", subdiscuss_data_temp, function (data) {

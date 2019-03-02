@@ -50,7 +50,7 @@ public class UserBean {
     /**
      * 用户注册时间
      */
-    @Column(name = "add_time")
+    @Column(name = "addTime")
     private Date addTime;
 
     @Override
