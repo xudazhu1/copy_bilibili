@@ -150,12 +150,12 @@ function show_subdiscuss4discuss(subdiscuss_div) {
         $(data.subdiscuss_data).each(function (index, subdiscuss) {
             subdiscuss_div.append(format_subdiscuss_html(subdiscuss))
             //是否已赞
-            $.get("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.ID}, function (data) {
-                $("#subdiscuss_button_" + subdiscuss.ID).css("color", data);
+            $.get("subdiscuss_praise/has", {"subDiscuss_ID": subdiscuss.id}, function (data) {
+                $("#subdiscuss_button_" + subdiscuss.id).css("color", data);
             })
             //赞的数量
-            $.get("subdiscuss_praise/num", {"subDiscuss_ID": subdiscuss.ID}, function (data) {
-                $("#subdiscuss_num_" + subdiscuss.ID).text(data)
+            $.get("subdiscuss_praise/num", {"subDiscuss_ID": subdiscuss.id}, function (data) {
+                $("#subdiscuss_num_" + subdiscuss.id).text(data)
             })
 //				})
         })
@@ -249,8 +249,8 @@ $(function () {
 
 
     var url1 = decodeURIComponent(window.location.href);
-    var login_url = url1.substring(url1.lastIndexOf('.') + 1, url1.length);
-    $(".login_hint").attr("href", "login?url=video." + login_url);
+    var login_url = url1.substring(url1.lastIndexOf('?') + 1, url1.length);
+    $(".login_hint").attr("href", "login.html?url=video.html?" + login_url);
 
     //发布评论
     $(".discuss_submit").click(function () {
@@ -313,7 +313,7 @@ $(function () {
         var subdiscuss_submit = $(this);
         var attr_name = $(this).attr("name");
         var discuss_ID = attr_name.split("&")[0].split("=")[1];
-        var account_ID = userData.ID;
+        var account_ID = userData.id;
         var obj_ID = attr_name.split("&")[1].split("=")[1];
         var subdiscuss_info = $(this).prev()[0].value;
         if (subdiscuss_info == "" || subdiscuss_info.length === 0) {
@@ -347,7 +347,7 @@ $(function () {
         var num = $(this).next();
         var data_temp = new Object;
         data_temp["discuss_ID"] = $(this).attr("discuss_id");
-        data_temp["account_ID"] = userData.account_ID;
+        data_temp["account_ID"] = userData.accountId;
         $.get("discuss_praise/click", data_temp, function (data) {
 //			alert(data);
             button1.css("color", data);
@@ -370,7 +370,7 @@ $(function () {
         var num = $(this).next();
         var data_temp = new Object;
         data_temp["subDiscuss_ID"] = $(this).attr("subdiscuss_id");
-        data_temp["account_ID"] = userData.account_ID;
+        data_temp["account_ID"] = userData.accountId;
         $.get("subdiscuss_praise/click", data_temp, function (data) {
 //			alert(data);
             button1.css("color", data);
@@ -404,7 +404,7 @@ $(function () {
         var num = $(this).next();
         var data_temp = new Object;
         data_temp["videoId"] = $(this).attr("video_id");
-        data_temp["account_ID"] = userData.account_ID;
+        data_temp["account_ID"] = userData.accountId;
         $.get("video_praise/click", data_temp, function (data) {
 //			alert(data);
             button1.css("color", data);
@@ -438,7 +438,7 @@ $(function () {
         var num = $(this).next();
         var data_temp = new Object;
         data_temp["videoId"] = $(this).attr("video_id");
-        data_temp["account_ID"] = userData.account_ID;
+        data_temp["account_ID"] = userData.accountId;
         $.get("video_star/click", data_temp, function (data) {
 //			alert(data);
             button1.css("color", data);

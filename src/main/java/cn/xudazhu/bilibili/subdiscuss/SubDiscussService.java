@@ -78,7 +78,7 @@ public class SubDiscussService {
 
     }
 
-    JSONObject getSubDiscuss(Map<Object, Object> map, Integer aPageNum, Integer pageNum, String condition) {
+    JSONObject getSubDiscuss(Map<String, Object> map, Integer aPageNum, Integer pageNum, String condition) {
         if (condition == null) {
             condition = "id";
         }

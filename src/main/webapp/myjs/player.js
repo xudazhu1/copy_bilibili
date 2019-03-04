@@ -3,7 +3,7 @@
 var dp;
 var videoData;
 var url = decodeURIComponent(window.location.href);  
-var videoId = url.substring(url.lastIndexOf('.')+1, url.length);
+var videoId = url.substring(url.lastIndexOf('videoId=')+8, url.length);
 
 $(function() {
 	var  user = "游客";

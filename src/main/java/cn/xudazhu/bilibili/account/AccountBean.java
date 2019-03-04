@@ -2,6 +2,8 @@ package cn.xudazhu.bilibili.account;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -13,6 +15,8 @@ import java.io.Serializable;
  * @date 2019/2/28 2:29
  */
 @Entity
+@DynamicInsert
+@DynamicUpdate
 @Table(name = "account")
 @Getter
 @Setter

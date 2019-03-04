@@ -2,13 +2,14 @@ package cn.xudazhu.bilibili.user;
 
 
 import cn.xudazhu.bilibili.account.AccountBean;
+import cn.xudazhu.bilibili.utils.FormatMap;
 import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Part;
 import java.util.Map;
 
 /**
@@ -25,25 +26,25 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    public void setUserService(UserService userService ) {
+    public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
 
     @GetMapping
-    public String getUser( Map<String, Object> params , HttpServletRequest request  ) {
+    public String getUser(Map<String, Object> params, HttpServletRequest request) {
         try {
             String userId = (String) params.get("ID");
             System.out.println("user_ID = " + userId);
-            UserBean user ;
+            UserBean user;
             //如果没有传值过来 获取已登录的用户
-            if ( userId == null ) {
+            if (userId == null) {
                 AccountBean accountBean = (AccountBean) request.getSession().getAttribute("account");
-                if ( accountBean != null ) {
+                if (accountBean != null) {
                     user = userService.findById(accountBean.getId());
                 } else {
                     //如果没有登陆用户  返回空
-                    System.out.println("GetUser = " +  new JSONObject().toString());
+                    System.out.println("GetUser = " + new JSONObject().toString());
                     return new JSONObject().toString();
                 }
             } else {
@@ -52,7 +53,7 @@ public class UserController {
             System.out.println(user);
             JSONObject jsonObject = JSONObject.fromObject(user);
             System.out.println("GetUser = " + jsonObject.toString());
-            return   jsonObject.toString();
+            return jsonObject.toString();
         } catch (Exception e) {
             e.printStackTrace();
             return "";
@@ -60,40 +61,17 @@ public class UserController {
     }
 
 
-//    @PutMapping
-//    public String updateUser(HttpServletRequest request  ) throws Exception{
-//        if ( request.getContentType().contains("multipart") ) {
-//            request.getPart("千万别注释这行");
-//        }
-//        try {
-//            AccountBean aBean = (AccountBean) request.getSession().getAttribute("account");
-//            if ( aBean == null ) {
-//                return ("登陆超时 修改失败");
-//            }
-//            Map<Object , Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
-//            Boolean update ;
-//            if ( request.getContentType().contains("multipart") ) {
-//                Part part  = request.getPart("head_img");
-//                if ( part != null ) {
-//                    System.out.println("part!=null");
-//                    part.write("img/head_img/" + aBean.getID() + ".png");
-//                    map.put("head_img", aBean.getID());
-//                }
-//            }
-//            map.put("account_ID" , aBean.getID());
-//            update = accountService.update_user(map);
-//            if ( update ) {
-//                return ("修改成功");
-//            } else {
-//                return ("修改失败");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return ("修改失败");
-//        }
-//
-//    }
+    @PutMapping
+    public String updateUser( Map<String , Object > map , @RequestParam(value = "headImg" , required = false) MultipartFile headImg, HttpServletRequest request) throws Exception {
+        AccountBean aBean = (AccountBean) request.getSession().getAttribute("account");
+        if (aBean == null) {
+            return ("登陆超时 修改失败");
+        } else {
+            map.put("accountId" , aBean.getId());
+        }
+        return userService.updateUser(map, headImg) ? "修改成功" : "修改失败";
 
+    }
 
 
 }

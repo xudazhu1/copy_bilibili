@@ -1,6 +1,7 @@
 package cn.xudazhu.bilibili.video;
 
 import cn.xudazhu.bilibili.subsection.SubsectionBean;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -24,5 +25,33 @@ public interface VideoDao extends JpaRepository<VideoBean , Integer> {
      */
     List<VideoBean> findAllBySubsectionBeanIn(Collection<SubsectionBean> subsectionBeans, Pageable pageable);
 
+    /**
+     * findAllBySubsectionBeanId
+     * @param subsectionBeanId subsectionBeanId
+     * @param pageable pageable
+     * @return 结果集
+     */
+    List<VideoBean> findAllBySubsectionBeanId(Integer subsectionBeanId, Pageable pageable);
 
+    /**
+     * countAllBySubsectionBeanId
+     * @param subsectionBeanId subsectionBeanId
+     * @return count数
+     */
+    Long countAllBySubsectionBeanId(Integer subsectionBeanId );
+
+    /**
+     *  findAllByUserBeanAccountId
+     * @param userBeanAccountId userBeanAccountId
+     * @param pageable pageable
+     * @return 结果集
+     */
+    List<VideoBean> findAllByUserBeanAccountId(Integer userBeanAccountId, Pageable pageable);
+
+    /**
+     *   countAllByUserBeanAccountId
+     * @param userBeanAccountId userBeanAccountId
+     * @return count 数
+     */
+    Long countAllByUserBeanAccountId(Integer userBeanAccountId );
 }

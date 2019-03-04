@@ -120,13 +120,6 @@ function inner(div) {
 //分页获取video subSection_ID/author_ID 条件二选一 a_page_num : 每页数量 , page_num: 当前请求页 condition : 用来排序的列(默认降序 也就是值越大 越靠前)
 function getVideo(object1, a_page_num, page_num , condition) {
 	var dataR1 = new Object;
-//	var formdata = new FormData();
-//	$.each(keys , function ( i , n ) {
-//		formdata.append(keys[i], values[i]);
-//	})
-//	formdata.append("condition", condition);
-//	formdata.append("a_page_num", a_page_num);
-//	formdata.append("page_num", page_num);
 	object1["condition"] = condition;
 	object1["a_page_num"] = a_page_num;
 	object1["page_num"] = page_num;

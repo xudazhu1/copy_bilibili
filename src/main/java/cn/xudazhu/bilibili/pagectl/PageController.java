@@ -3,6 +3,7 @@ package cn.xudazhu.bilibili.pagectl;
 import cn.xudazhu.bilibili.utils.CookieUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -17,6 +18,7 @@ import java.util.Map;
  * @date 2019/2/28
  */
 @Controller
+@RequestMapping("error")
 public class PageController {
 
 
@@ -69,7 +71,7 @@ public class PageController {
     public String skipVideo1(HttpServletRequest request, HttpServletResponse response) {
         CookieUtils.addCookie4Session(request, response);
         System.out.println(request.getRequestURL());
-        return "/video1.html";
+        return "/video.html";
 
     }
 

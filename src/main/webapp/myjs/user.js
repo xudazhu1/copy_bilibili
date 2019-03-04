@@ -5,12 +5,11 @@ function show_message( type , page_num , account) {
 		type2 =  type.substring(0 , type.length-3);
 	} 
 		var dataR = new Object;
-		dataR[account] = userData.account_ID;
+		dataR[account] = userData.accountId;
 		dataR["type"] = type2;
 		dataR["a_page_num"] = 15;
 		dataR["page_num"] = 1;
 		$.get("c_message" , dataR , function ( message_data ) {
-			
 			$(".fans_div").hide();
 			$(".system_message").show();
 			$(".system_message").empty();
@@ -86,7 +85,7 @@ function flush_message_num() {
 		var id_attr = message_btn_temp.attr("id");
 		if ( ! (id_attr.indexOf("_me") === -1) ) {
 			
-			$.get("c_message/unread_num" , {"target_account":userData.account_ID , "type":id_attr.substring(0 , id_attr.length-3)} , function ( returnNum) {
+			$.get("c_message/unread_num" , {"target_account":userData.accountId , "type":id_attr.substring(0 , id_attr.length-3)} , function ( returnNum) {
 				message_btn_temp.children(".badge").text( returnNum )
 			})
 			 
@@ -105,7 +104,7 @@ function show_fans( fans_button ) {
 	
 	var account = fans_button.attr("name");
 	var data_temp1 = new Object;
-	data_temp1[account] = userData.account_ID;
+	data_temp1[account] = userData.accountId;
 	$.get("account_star" , data_temp1 , function ( fans_data ) {
 		$(".fans_div").empty();
 		$(fans_data.account_star_data).each(function ( index , account_star ) {
@@ -219,7 +218,7 @@ function upload_user() {
 	var formdata = new FormData();
 	if ( typeof (head_img) != "undefined") {
 		console.log("youwenjian")
-		formdata.append("head_img", head_img);
+		formdata.append("headImg", head_img);
 		if (head_img.size /1024 > 200 ) {
 			alert("头像文件过大")
 			return false;
@@ -247,7 +246,7 @@ function upload_user() {
 
 function get_a_page_video(user_ID , video_a_page_num , video_page_num) {
 	//拿到单页video数据
-	var data2 = getVideo({"author_ID": user_ID}, video_a_page_num , video_page_num , "up_date");
+	var data2 = getVideo({"userBeanId": user_ID}, video_a_page_num , video_page_num , "upDate");
 	all_page_num = data2.all_page_num;
 	$(".video_all_num").text("共 "+data2.all_num+" 个视频");
 	$(".video_num").text(data2.all_num);
@@ -255,15 +254,15 @@ function get_a_page_video(user_ID , video_a_page_num , video_page_num) {
 	$(data2.video_data).each(function(index , video) {
 		$(".videos").append("<div class='video_a_div'>"
 		+ "<div class='video_a_div_img_div'>"
-		+"<a target='_blank' href='video."+video.ID+"' title='"+video.title+"'>"
-		+"<img src='https://static.xudazhu.cn/img/cover/"+video.cover_ID+".jpg' class='img-rounded video_img1' alt='cover'>"
+		+"<a target='_blank' href='video."+video.id+"' title='"+video.title+"'>"
+		+"<img src='https://static.xudazhu.cn/img/cover/"+video.coverId+".jpg' class='img-rounded video_img1' alt='cover'>"
 		+"</a>"
 		+"</div>"
 		+"<div class='video_a_div_text'>"
-		+"<a target='_blank' class='video_title' href='video."+video.ID+"'>"+video.title+"</a>"
+		+"<a target='_blank' class='video_title' href='video.html?videoId="+video.id+"'>"+video.title+"</a>"
 //		+"<span class='s_line'></span>"
-		+"<a class='video_author'>"+video.ID+"</a>"
-		+"<span class='video_time'>"+formatDate(new Date(video.up_date.time))+"</span>"
+		+"<a class='video_author'>"+video.id+"</a>"
+		+"<span class='video_time'>"+formatDate(new Date(video.upDate.time))+"</span>"
 		+"</div><div class='video_info'>"+video.info+"</div>"
 		+"</div>").fadeIn(500);
 	})
@@ -305,6 +304,29 @@ function getObjectURL(file) {
      return url;  
  }
 
+
+ function logined ( userData ) {
+     navLogined( userData );
+     $(".user_add_time").text("注册于 " + formatDate(new Date(userData.addTime.time)))
+     show_message("video_star_me", 1, "target_account");
+     test_message();
+     show_main_message();
+
+     // $.get("account_star/get_letter_fans" , function ( fans_data) {
+     //     $(".my_fans_num").text(fans_data.my_fans_num);
+     //     $(".my_star_num").text(fans_data.my_star_num);
+     //     $(fans_data.my_fans).each(function ( index , fans ) {
+     //         $(".my_fans_title").after("<img src='https://static.xudazhu.cn/img/head_img/"+fans.account_ID+".png' class='main_head_img head_img_img' user_id='"+fans.account_ID+"'>")
+     //     })
+     //     $(fans_data.my_star).each(function ( index , star1 ) {
+     //         $(".my_star_title").after("<img src='https://static.xudazhu.cn/img/head_img/"+star1.star_account_ID+".png' class='main_head_img head_img_img' user_id='"+star1.star_account_ID+"'>")
+     //     })
+     // } , "json")
+
+     get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
+     show_page_button(video_a_page_num, video_page_num, all_page_num);
+ }
+
 //默认每页显示10条上传的video数据
 var video_a_page_num = 10 ;
 //页数初始值为1
@@ -313,27 +335,27 @@ var video_page_num = 1 ;
 var all_page_num = 1;
 
 $(function() {
-	$.get("c_user" , function ( userData1) {
-		userData = userData1;
-		$(".user_add_time").text("注册于 " + formatDate(new Date(userData1.add_time.time)))
-		show_message("video_star_me", 1, "target_account");
-		test_message();
-		show_main_message();
-
-		$.get("account_star/get_letter_fans" , function ( fans_data) {
-			$(".my_fans_num").text(fans_data.my_fans_num);
-			$(".my_star_num").text(fans_data.my_star_num);
-			$(fans_data.my_fans).each(function ( index , fans ) {
-				$(".my_fans_title").after("<img src='https://static.xudazhu.cn/img/head_img/"+fans.account_ID+".png' class='main_head_img head_img_img' user_id='"+fans.account_ID+"'>")
-			})
-			$(fans_data.my_star).each(function ( index , star1 ) {
-				$(".my_star_title").after("<img src='https://static.xudazhu.cn/img/head_img/"+star1.star_account_ID+".png' class='main_head_img head_img_img' user_id='"+star1.star_account_ID+"'>")
-			})
-		} , "json")
-		
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
-		show_page_button(video_a_page_num, video_page_num, all_page_num);
-	} , "json")
+	// $.get("c_user" , function ( userData1) {
+	// 	userData = userData1;
+		// $(".user_add_time").text("注册于 " + formatDate(new Date(userData1.addTime.time)))
+		// show_message("video_star_me", 1, "target_account");
+		// test_message();
+		// show_main_message();
+		//
+		// $.get("account_star/get_letter_fans" , function ( fans_data) {
+		// 	$(".my_fans_num").text(fans_data.my_fans_num);
+		// 	$(".my_star_num").text(fans_data.my_star_num);
+		// 	$(fans_data.my_fans).each(function ( index , fans ) {
+		// 		$(".my_fans_title").after("<img src='https://static.xudazhu.cn/img/head_img/"+fans.account_ID+".png' class='main_head_img head_img_img' user_id='"+fans.account_ID+"'>")
+		// 	})
+		// 	$(fans_data.my_star).each(function ( index , star1 ) {
+		// 		$(".my_star_title").after("<img src='https://static.xudazhu.cn/img/head_img/"+star1.star_account_ID+".png' class='main_head_img head_img_img' user_id='"+star1.star_account_ID+"'>")
+		// 	})
+		// } , "json")
+		//
+		// get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
+		// show_page_button(video_a_page_num, video_page_num, all_page_num);
+	// } , "json")
 	
 	$(".fans_button").click(function () {
 		show_fans($(this));
@@ -344,7 +366,7 @@ $(function() {
 	$(document).on("change", ".aPageNum", function() {
 		video_a_page_num = parseInt(this.value);
 		video_page_num = 1;
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 
@@ -355,18 +377,18 @@ $(function() {
 			return;
 		}
 		video_page_num = inputNum;
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 
 	$(document).on("click", ".pageButton", function() {
 		video_page_num = parseInt($(this)[0].textContent);
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 	$(document).on("click", ".startsPage", function() {
 		video_page_num = 1;
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 	$(document).on("click", ".lastPage", function() {
@@ -375,7 +397,7 @@ $(function() {
 			return;
 		}
 		video_page_num = parseInt(video_page_num - 1);
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 	$(document).on("click", ".nextPage", function() {
@@ -384,12 +406,12 @@ $(function() {
 			return;
 		}
 		video_page_num = parseInt(video_page_num + 1);
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 	$(document).on("click", ".endPage", function() {
 		video_page_num = all_page_num;
-		get_a_page_video(userData.account_ID , video_a_page_num , video_page_num);
+		get_a_page_video(userData.accountId , video_a_page_num , video_page_num);
 		show_page_button(video_a_page_num, video_page_num, all_page_num);
 	})
 	
@@ -440,8 +462,8 @@ $(function() {
 	
 	//获取登录用户信息
 	$.get("c_user" , function(data){
-		$(".head_img2").attr("src" , "https://static.xudazhu.cn/img/head_img/"+data.head_img+".png" );
-		$(".icon_uid").next().text(data.account_ID) ;
+		$(".head_img2").attr("src" , "https://static.xudazhu.cn/img/head_img/"+data.headImg+".png" );
+		$(".icon_uid").next().text(data.accountId) ;
 		$("#user_age")[0].value = data.age;
 		$("#setting_user_info")[0].value = data.info;
 		$("#h-sign")[0].value = data.info;

@@ -15,9 +15,9 @@ function logined ( userData ) {
 
     // $.get("c_message/unread_num" , {"target_account" : data.accountId} , function ( unread_num ) {
     $(".table_right_tr").empty();
-    $(".table_right_tr").append("<td class='header1_td'><a target='_blank' href='user'><div><img class='head_img' src='https://static.xudazhu.cn/img/head_img/" + userData.headImg + ".png'/></div></a></td>" +
-        "<td class='header1_td'><a target='_blank' href='user?div=nav_star_div'><div>&nbsp;收藏夹&nbsp;</div></a></td>" +
-        "<td class='header1_td'><a class='nav_message' href='user?div=nav_dynamic_div'><div>&nbsp;消息" +
+    $(".table_right_tr").append("<td class='header1_td'><a target='_blank' href='user.html'><div><img class='head_img' src='https://static.xudazhu.cn/img/head_img/" + userData.headImg + ".png'/></div></a></td>" +
+        "<td class='header1_td'><a target='_blank' href='user.html?div=nav_star_div'><div>&nbsp;收藏夹&nbsp;</div></a></td>" +
+        "<td class='header1_td'><a class='nav_message' href='user.html?div=nav_dynamic_div'><div>&nbsp;消息" +
         "<span class='badge nav_message_num'>" + 99 + "</span>&nbsp;</div></a></td>" +
         "<td class='header1_td'><a href='history.html'><div>&nbsp;历史&nbsp;</div></a></td>");
 
@@ -64,13 +64,13 @@ function show_video_a() {
             if (index < 5) {
                 $(take_turns_img[index]).attr("src", "https://static.xudazhu.cn/img/cover/" + video.coverId + ".jpg")
                 $(take_turns_img[index]).after("<div class='img_hover_big img-rounded' style='display: none;'>	<div class='video_hover_title' >" + video.title + "</div> <div class='video_hover_playNum'> 播放" + video.playNum + "次</div> </div>")
-                $(take_turns_img[index]).parent().attr("href", "video." + video.id);
+                $(take_turns_img[index]).parent().attr("href", "video.html?videoId=" + video.id);
                 $(take_turns_img[index]).parent().attr("title", video.title);
             } else {
                 $(hot_video_img[index - 5]).attr("src", "https://static.xudazhu.cn/img/cover/" + video.coverId + ".jpg")
                 $(hot_video_img[index - 5]).next().remove();
                 $(hot_video_img[index - 5]).after("<div class='img_hover img-rounded' style='display: block;'>	<div class='video_hover_title' >" + video.title + "</div> <div class='video_hover_playNum'> 播放" + video.playNum + "次</div> </div>")
-                $(hot_video_img[index - 5]).parent().attr("href", "video." + video.id);
+                $(hot_video_img[index - 5]).parent().attr("href", "video.html?videoId=" + video.id);
                 $(hot_video_img[index - 5]).parent().attr("title", video.title);
             }
         })
@@ -81,7 +81,7 @@ function show_video_a() {
     var advertising = $(".advertising");
     $(selectVideoData2.video_data).each(function (index, video) {
         $(advertising[index]).attr("src", "https://static.xudazhu.cn/img/cover/" + video.coverId + ".jpg")
-        $(advertising[index]).parent().attr("href", "video." + video.id);
+        $(advertising[index]).parent().attr("href", "video.html?videoId=" + video.id);
         $(advertising[index]).parent().attr("title", video.title);
         $(advertising[index]).next().attr("title", video.title);
         $(advertising[index]).next().text(video.title);
@@ -270,7 +270,7 @@ $(function () {
         $.get("c_video/4sectionId" , {"sectionId" : $(this).attr("sectionId") , "a_page_num" : 10 , "page_num" : 1 , "condition" : "playNum"} , function (video4sectionJSON ) {
         $(video4sectionJSON.video_data).each(function (index, video) {
             $(img_xs[index]).attr("src", "https://static.xudazhu.cn/img/cover/" + video.coverId + ".jpg");
-            $(img_xs[index]).parent().attr("href", "video." + video.id);
+            $(img_xs[index]).parent().attr("href", "video.html?videoId=" + video.id);
             $(img_xs[index]).parent().attr("title", video.title);
             $(img_xs[index]).next().attr("title", video.title);
             $(img_xs[index]).next().text(video.title);

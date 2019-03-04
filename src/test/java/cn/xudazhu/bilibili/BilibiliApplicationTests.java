@@ -86,10 +86,10 @@ public class BilibiliApplicationTests {
     public void contextLoads() {
 //        Page<VideoBean> videoAll = videoDao.findAll(PageRequest.of(1, 10, Sort.by(Sort.Order.desc("upDate"))));
 //        System.out.println(videoAll.getContent());
-        VideoService videoService = new VideoService();
-        videoService.setVideoDao(videoDao);
-        List<VideoBean> videoBeans = videoService.getVideo(FormatMap.newMap(new Object[]{"id"}, new Object[]{36}), 1, 1, "id");
-        System.out.println( "videoBeans" + videoBeans);
+//        VideoService videoService = new VideoService();
+//        videoService.setVideoDao(videoDao);
+//        List<VideoBean> videoBeans = videoService.getVideo(FormatMap.newMap(new Object[]{"id"}, new Object[]{36}), 1, 1, "id");
+//        System.out.println( "videoBeans" + videoBeans);
     }
 
 }

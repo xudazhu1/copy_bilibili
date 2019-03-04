@@ -47,7 +47,7 @@ public class SubdiscussController {
     public String getSubDiscuss(HttpServletRequest request) {
         String aPageNum = request.getParameter("a_page_num") == null ? "20" : request.getParameter("a_page_num");
         String pageNum = request.getParameter("page_num") == null ? "1" : request.getParameter("page_num");
-        Map<Object, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
+        Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
         return subDiscussService.getSubDiscuss(map, Integer.parseInt(aPageNum), Integer.parseInt(pageNum), request.getParameter("condition")).toString();
 
 

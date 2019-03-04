@@ -29,7 +29,7 @@ public class SectionController {
 
 
     @GetMapping
-    public String getSections( Map<Object , Object > map ) {
+    public String getSections( Map<String, Object > map ) {
         List<SectionBean> sections = sectionService.getSections(map);
         return  JSONArray.fromObject(sections).toString();
     }

@@ -30,7 +30,7 @@ public class DiscussController {
     public String getDiscuss(HttpServletRequest request) {
         int aPageNum = request.getParameter("a_page_num") == null ? 20 : Integer.parseInt(request.getParameter("a_page_num"));
         int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
-        Map<Object, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
+        Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
         return discussService.getDiscuss(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition"))).toString();
 
     }

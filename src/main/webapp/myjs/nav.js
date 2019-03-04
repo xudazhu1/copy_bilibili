@@ -4,9 +4,9 @@
 function navLogined( userData ) {
     $(".my_head_img").attr("src" ,"https://static.xudazhu.cn/img/head_img/"+userData.headImg+".png" );
     $(".table_right_tr").empty();
-    $(".table_right_tr").append("<td class='header1_td'><a target='_blank' href='user'><div><img class='head_img' src='https://static.xudazhu.cn/img/head_img/"+userData.headImg+".png'/></div></a></td>" +
-        "<td class='header1_td'><a href='user?div=nav_star_div'><div>&nbsp;收藏夹&nbsp;</div></a></td>" +
-        "<td class='header1_td'><a class='nav_message' href='user?div=nav_dynamic_div'><div>&nbsp;消息" +
+    $(".table_right_tr").append("<td class='header1_td'><a target='_blank' href='user.html'><div><img class='head_img' src='https://static.xudazhu.cn/img/head_img/"+userData.headImg+".png'/></div></a></td>" +
+        "<td class='header1_td'><a href='user.html?div=nav_star_div'><div>&nbsp;收藏夹&nbsp;</div></a></td>" +
+        "<td class='header1_td'><a class='nav_message' href='user.html?div=nav_dynamic_div'><div>&nbsp;消息" +
         "<span class='badge nav_message_num'>0</span>&nbsp;</div></a></td>" +
         "<td class='header1_td'><a href='history.html'><div>&nbsp;历史&nbsp;</div></a></td>");
     $.get( "c_message/unread_num" , {"target_account" : userData.accountId} , function ( unread_data) {

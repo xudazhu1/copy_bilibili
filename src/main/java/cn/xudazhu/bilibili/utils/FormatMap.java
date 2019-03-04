@@ -11,8 +11,8 @@ public class FormatMap {
 
 
     
-    public static  Map<Object, Object>  fomatRequestMap(Map<String, String[]> map ) {
-        Map<Object, Object> map1 = new HashMap<>(20);
+    public static  Map<String, Object>  fomatRequestMap(Map<String, String[]> map ) {
+        Map<String, Object> map1 = new HashMap<>(20);
         for (Entry<String, String[]> entry : map.entrySet()) {
             for (String value : entry.getValue()) {
                 if ( ! "a_page_num".equals(entry.getKey()) && ! "page_num".equals(entry.getKey()) && ! "condition".equals(entry.getKey())  && ! "_method".equals(entry.getKey()) ) {
@@ -23,7 +23,7 @@ public class FormatMap {
                     }
                     if ( key.endsWith("[]") ) {
                         key = key.substring(0, key.length()-2 ) ;
-                        map1.put(new StringBuilder(key), value );
+                        map1.put(key, value );
                     } else {
                         map1.put(key , value );
                     }
@@ -64,15 +64,6 @@ public class FormatMap {
 
 
     }
-    
-    
-    public static  Map<Object, Object>  newMap(Object[] keys, Object[] values ) {
-        Map<Object, Object> map = new HashMap<>(10);
-        for (int i = 0; i < values.length; i++) {
-            map.put(keys[i], values[i]);
-        }
-        return map;
-        
-    }
+
 
 }

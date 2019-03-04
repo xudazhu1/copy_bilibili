@@ -6,6 +6,8 @@ import cn.xudazhu.bilibili.user.UserBean;
 import cn.xudazhu.bilibili.user.UserDao;
 import cn.xudazhu.bilibili.utils.MyBeanUtils;
 import cn.xudazhu.bilibili.utils.PicUtils;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -46,33 +48,54 @@ public class VideoService {
 
 
     /**
-     * 查找符合条件的video集合
+     * getVideo
      *
-     * @param map       条件
-     * @param aPageNum  每页数量
-     * @param pageNum   当前页数
-     * @param condition 排序属性名
-     * @return 返回查到的video集合
+     * @param map       查询条件
+     * @param aPageNum  每页size
+     * @param pageNum   页数
+     * @param condition 排序字段
+     * @return 结果集
      */
-    public List<VideoBean> getVideo(Map<Object, Object> map, Integer aPageNum, Integer pageNum, String condition) {
+    JSONObject getVideo(Map<String, Object> map, int aPageNum, int pageNum, String condition) {
         if (condition == null) {
             condition = "id";
         }
-        VideoBean videoBean = new VideoBean();
-        MyBeanUtils.populate(videoBean, map);
-        if (map.size() == 0) {
-            Page<VideoBean> videoAll = videoDao.findAll(PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
-            return videoAll.getContent();
-        } else {
-            Page<VideoBean> videoBeans = videoDao.findAll(Example.of(videoBean), PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
-            String id = "id";
-            if (map.get(id) != null) {
-                VideoBean videoBean1 = videoBeans.getContent().get(0);
-                videoBean1.setPlayNum(videoBean1.getPlayNum() + 1);
-                videoDao.save(videoBean1);
-            }
-            return videoBeans.getContent();
+        List<VideoBean> videoBeans =  new ArrayList<>();
+        Long allNum = -1L;
+
+        String videoId = "sectionBeanId";
+        if (map.get(videoId) != null) {
+            int i = Integer.parseInt((String) map.get(videoId));
+            videoBeans = videoDao.findAllBySubsectionBeanId(i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            allNum = videoDao.countAllBySubsectionBeanId(i);
         }
+        String userBeanId = "userBeanId";
+        if (map.get(userBeanId) != null) {
+            int i = Integer.parseInt((String) map.get(userBeanId));
+            videoBeans = videoDao.findAllByUserBeanAccountId(i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+            allNum = videoDao.countAllByUserBeanAccountId(i);
+        }
+        VideoBean videoBean = new VideoBean();
+        if (allNum == -1L) {
+            if (map.size() == 0) {
+                Page<VideoBean> discussBeans = videoDao.findAll(PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+                videoBeans = discussBeans.getContent();
+                allNum = videoDao.count();
+            } else {
+                MyBeanUtils.populate(videoBean , map );
+                Page<VideoBean> discussBeans = videoDao.findAll(Example.of(videoBean), PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+                videoBeans = discussBeans.getContent();
+                allNum = videoDao.count(Example.of(videoBean));
+            }
+        }
+        JSONArray jsonArray = JSONArray.fromObject(videoBeans);
+        JSONObject json = new JSONObject();
+        json.put("all_page_num", ((allNum - 1) / aPageNum) + 1);
+        json.put("all_num", allNum);
+        json.put("video_data", jsonArray);
+        System.out.println("GetVideo = " + json.toString());
+        return json;
+
 
     }
 
@@ -82,7 +105,7 @@ public class VideoService {
      * @param map 条件
      * @return 数量
      */
-    Long getVideoNum(Map<Object, Object> map) {
+    Long getVideoNum(Map<String, Object> map) {
         VideoBean videoBean = new VideoBean();
         Boolean populate = MyBeanUtils.populate(videoBean, map);
         if (populate) {
@@ -133,7 +156,7 @@ public class VideoService {
      * @param videoFile 视频文件
      * @return 返回保存后的视频bean
      */
-    public VideoBean save(Map<Object, Object> map, MultipartFile coverFile, MultipartFile videoFile) throws IOException {
+    public VideoBean save(Map<String, Object> map, MultipartFile coverFile, MultipartFile videoFile) throws IOException {
         String subsectionName;
         subsectionName = (String) map.remove("subsectionName");
         SubsectionBean subsectionDaoByName = subsectionDao.findByName(subsectionName);
@@ -169,7 +192,7 @@ public class VideoService {
      * @param map 条件
      * @return 数量
      */
-    List<VideoBean> getVideo4sectionId(Map<Object, Object> map, int aPageNum, int pageNum, String condition) {
+    List<VideoBean> getVideo4sectionId(Map<String, Object> map, int aPageNum, int pageNum, String condition) {
         String sectionId = (String) map.get("sectionId");
         if (sectionId == null) {
             return new ArrayList<>();

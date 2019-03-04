@@ -45,7 +45,7 @@ function show_video_new() {
 						$(subsection_data).each(function(index , subsection) {
 							if (subsection.name === loc ) {
 //								alert(subsection.ID)
-								videoData1 =getVideo({"subsection_ID" : subsection.ID}, 5, 1, "up_date");
+								videoData1 =getVideo({"subsection_ID" : subsection.id}, 5, 1, "up_date");
 							}
 						})
 					}
@@ -55,8 +55,8 @@ function show_video_new() {
 	}
 	//铺上查到的video数据
 	$(videoData1.video_data).each(function( index , video ) {
-		$(img_xs[index]).attr("src" , "https://static.xudazhu.cn/img/cover/" + video.cover_ID + ".jpg");
-		$(img_xs[index]).parent().attr("href" , "video." + video.ID);
+		$(img_xs[index]).attr("src" , "https://static.xudazhu.cn/img/cover/" + video.userBean.accountId + ".jpg");
+		$(img_xs[index]).parent().attr("href" , "video." + video.id);
 		$(img_xs[index]).parent().attr("target" , "_blank");
 		$(img_xs[index]).parent().attr("title" , video.title);
 		$(img_xs[index]).next().attr("title" , video.title);

@@ -2,7 +2,6 @@ package cn.xudazhu.bilibili.discuss;
 
 import cn.xudazhu.bilibili.user.UserBean;
 import cn.xudazhu.bilibili.video.VideoBean;
-import com.sun.xml.internal.bind.v2.model.core.ID;
 import lombok.Getter;
 import lombok.Setter;
 

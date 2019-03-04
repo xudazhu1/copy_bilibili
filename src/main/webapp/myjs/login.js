@@ -136,7 +136,7 @@ $(function(){
 						if ( loc != "" ) {
 							window.location.href=loc;
 						} else {
-							window.location.href="index";
+							window.location.href="index.html";
 						}
 					} , 500 )
 				} else {

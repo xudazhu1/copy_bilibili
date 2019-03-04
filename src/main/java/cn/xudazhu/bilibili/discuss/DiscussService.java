@@ -43,7 +43,7 @@ public class DiscussService {
      * @param condition 排序字段
      * @return 结果集
      */
-    JSONObject getDiscuss(Map<Object, Object> map, int aPageNum, int pageNum, String condition) {
+    JSONObject getDiscuss(Map<String, Object> map, int aPageNum, int pageNum, String condition) {
         if (condition == null) {
             condition = "id";
         }
@@ -124,6 +124,7 @@ public class DiscussService {
             String videoBeanId = "videoBeanId";
             Optional<VideoBean> videoBeanById = videoDao.findById(Integer.parseInt((String) map.get(videoBeanId)));
             discussBean.setVideoBean(videoBeanById.orElse(null));
+            assert videoBeanById.orElse(null) != null;
             Optional<UserBean> targetUserBeanById = userDao.findById(videoBeanById.orElse(null).getUserBean().getAccountId());
             discussBean.setTargetUserBean(targetUserBeanById.orElse(null));
             DiscussBean save = discussDao.save(discussBean);

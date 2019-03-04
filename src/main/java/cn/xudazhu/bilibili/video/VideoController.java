@@ -35,33 +35,18 @@ public class VideoController {
 
     @GetMapping
     public String getVideo(HttpServletRequest request) {
-        try {
-            int aPageNum = request.getParameter("a_page_num") == null ? 20 : Integer.parseInt(request.getParameter("a_page_num"));
-            int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
-            Map<Object, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
-            List<VideoBean> videos = videoService.getVideo(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition")));
-            System.out.println(videos.get(0).getSubsectionBean());
-            JSONArray jsonArray = JSONArray.fromObject(videos);
-            Long allNum = videoService.getVideoNum(map);
-            JSONObject json = new JSONObject();
-            json.put("all_page_num", ((allNum - 1) / aPageNum) + 1);
-            json.put("all_num", allNum);
-            json.put("video_data", jsonArray);
-            System.out.println("GetVideo = " + json.toString());
-            return json.toString();
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
+        int aPageNum = request.getParameter("a_page_num") == null ? 20 : Integer.parseInt(request.getParameter("a_page_num"));
+        int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
+        Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
+        return videoService.getVideo(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition"))).toString();
     }
 
     @GetMapping("/4sectionId")
-        public String getVideo4sectionId (  HttpServletRequest request ) {
+    public String getVideo4sectionId(HttpServletRequest request) {
         try {
             int aPageNum = request.getParameter("a_page_num") == null ? 20 : Integer.parseInt(request.getParameter("a_page_num"));
             int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
-            Map<Object, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
+            Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
             List<VideoBean> videos = videoService.getVideo4sectionId(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition")));
             JSONArray jsonArray = JSONArray.fromObject(videos);
             Long allNum = videoService.getVideoNum(map);
@@ -116,14 +101,13 @@ public class VideoController {
         if (accountBean == null) {
             return "登陆超时";
         }
-        Map<Object, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
+        Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
         map.put("author_ID", accountBean.getId());
         map.put("subsectionName", request.getParameter("subSection"));
         VideoBean save = videoService.save(map, coverFile, videoFile);
         return save == null ? "视频上传成功" : "视频上传失败";
 
     }
-
 
 
 }

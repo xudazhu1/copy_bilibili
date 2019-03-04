@@ -26,7 +26,7 @@ public class SectionService {
     }
 
 
-    List<SectionBean> getSections(Map<Object, Object> map) {
+    List<SectionBean> getSections(Map<String, Object> map) {
         if ( map == null || map.size() == 0 ) {
             return sectionDao.findAll();
         }
