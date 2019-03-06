@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2018/2/29
  */
 public class CookieUtils {
-    
-    
+
+
     public static Cookie getCookie(HttpServletRequest request , String name ) {
         Cookie[] cookies = request.getCookies();
         if ( cookies != null ) {
@@ -39,8 +39,8 @@ public class CookieUtils {
         }
 
     }
-    
-    
+
+
     public static void addCookie4Session(HttpServletRequest request ,  HttpServletResponse response ) {
         Cookie easyCookie = CookieUtils.getCookie(request, "EASY-SESSION");
         if ( easyCookie != null ) {

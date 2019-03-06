@@ -32,7 +32,7 @@ public class UserController {
 
 
     @GetMapping
-    public String getUser(Map<String, Object> params, HttpServletRequest request) {
+    public String getUser(@RequestParam Map<String, Object> params, HttpServletRequest request) {
         try {
             String userId = (String) params.get("ID");
             System.out.println("user_ID = " + userId);
@@ -62,7 +62,7 @@ public class UserController {
 
 
     @PutMapping
-    public String updateUser( Map<String , Object > map , @RequestParam(value = "headImg" , required = false) MultipartFile headImg, HttpServletRequest request) throws Exception {
+    public String updateUser( @RequestParam Map<String , Object > map , @RequestParam(value = "headImg" , required = false) MultipartFile headImg, HttpServletRequest request) throws Exception {
         AccountBean aBean = (AccountBean) request.getSession().getAttribute("account");
         if (aBean == null) {
             return ("登陆超时 修改失败");

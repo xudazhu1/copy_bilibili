@@ -42,7 +42,7 @@ public class AccountController {
         try {
             Boolean hasAccount = accountService.hasAccount(email);
             if (hasAccount) {
-                System.out.println("Getuser = " + "邮箱已被注册");
+                System.out.println("GetUser = " + "邮箱已被注册");
                 return "邮箱已被注册";
             } else {
                 System.out.println("可以使用");

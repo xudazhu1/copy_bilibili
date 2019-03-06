@@ -17,7 +17,6 @@ import java.util.Map;
  * @author xudaz
  * @date 2019/2/28
  */
-@Transactional(rollbackFor = Exception.class)
 @RequestMapping("c_video")
 @RestController
 public class VideoController {
@@ -43,24 +42,11 @@ public class VideoController {
 
     @GetMapping("/4sectionId")
     public String getVideo4sectionId(HttpServletRequest request) {
-        try {
-            int aPageNum = request.getParameter("a_page_num") == null ? 20 : Integer.parseInt(request.getParameter("a_page_num"));
-            int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
-            Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
-            List<VideoBean> videos = videoService.getVideo4sectionId(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition")));
-            JSONArray jsonArray = JSONArray.fromObject(videos);
-            Long allNum = videoService.getVideoNum(map);
-            JSONObject json = new JSONObject();
-            json.put("all_page_num", ((allNum - 1) / aPageNum) + 1);
-            json.put("all_num", allNum);
-            json.put("video_data", jsonArray);
-            System.out.println("GetVideo = " + json.toString());
-            return json.toString();
+        int aPageNum = request.getParameter("a_page_num") == null ? 20 : Integer.parseInt(request.getParameter("a_page_num"));
+        int pageNum = request.getParameter("page_num") == null ? 1 : Integer.parseInt(request.getParameter("page_num"));
+        Map<String, Object> map = FormatMap.fomatRequestMap(request.getParameterMap());
+        return videoService.getVideo4sectionId(map, aPageNum, pageNum, FormatMap.toUpperCaseFirst(request.getParameter("condition"))).toString();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-            return "";
-        }
 
     }
 

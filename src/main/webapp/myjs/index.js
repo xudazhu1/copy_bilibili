@@ -165,8 +165,8 @@ $(function () {
         var sectionId = $(this).attr("sectionId");
         $.get("c_subsection/4sectionId" , {"sectionId" : sectionId } , function (data) {
             $("#temp1").empty();
-            $(data).each(function (index, section) {
-                $("#temp1").append("<a href='section.s." + section.name + "' name='" + section.name + "' style='margin: 1px 10px;'><p style='margin: 0px 15px; '>&gt;&nbsp;" + section.name + "</p></a>")
+            $(data).each(function (index, subSection) {
+                $("#temp1").append("<a href='section.html?type=section.s." + subSection.name + "&sectionId="+subSection.id+"'  name='" + subSection.name + "' style='margin: 1px 10px;'><p style='margin: 0px 15px; '>&gt;&nbsp;" + subSection.name + "</p></a>")
             })
         } , "json")
         var index1 = $(this).offset();

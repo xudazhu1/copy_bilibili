@@ -26,6 +26,13 @@ public interface VideoDao extends JpaRepository<VideoBean , Integer> {
     List<VideoBean> findAllBySubsectionBeanIn(Collection<SubsectionBean> subsectionBeans, Pageable pageable);
 
     /**
+     * countAllBySubsectionBeanIn
+     * @param subsectionBeans  subsectionBeans
+     * @return count Num
+     */
+    Long countAllBySubsectionBeanIn(Collection<SubsectionBean> subsectionBeans);
+
+    /**
      * findAllBySubsectionBeanId
      * @param subsectionBeanId subsectionBeanId
      * @param pageable pageable

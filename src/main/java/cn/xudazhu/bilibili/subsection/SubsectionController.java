@@ -4,9 +4,11 @@ import net.sf.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xudaz
@@ -29,6 +31,12 @@ public class SubsectionController {
     public String getBySectionId( Integer sectionId) {
         List<SubsectionBean> subsectionBeans =  subsectionService.getBySectionId(sectionId);
         return  JSONArray.fromObject(subsectionBeans).toString();
+    }
+
+    @GetMapping
+    public  String getSubsection(@RequestParam Map<String , Object > map ) {
+        List<SubsectionBean> subsection = subsectionService.getSubsection(map);
+        return  JSONArray.fromObject(subsection).toString();
     }
 
 

@@ -307,6 +307,35 @@ function getObjectURL(file) {
 
  function logined ( userData ) {
      navLogined( userData );
+
+     $(".head_img2").attr("src" , "https://static.xudazhu.cn/img/head_img/"+userData.headImg+".png" );
+     $(".icon_uid").next().text(userData.accountId) ;
+     $("#user_age")[0].value = userData.age;
+     $("#setting_user_info")[0].value = userData.info;
+     $("#h-sign")[0].value = userData.info;
+     $("#nickname")[0].value = userData.nickname;
+     $("#h-name").text(userData.nickname);
+
+     if ( userData.sex == "男") {
+         $("#h-gender").css("background-position-y" , "-472px")
+     } else if (userData.sex == "女") {
+         $("#h-gender").css("background-position-y" , "-404px")
+     } else {
+         $("#h-gender").css("background-position-y" , "-536px")
+     }
+
+     $(".sex").each(function(index) {
+//			alert($(this).parent("label").text() + " = " + data.sex )
+         if($(this).parent("label").text() == userData.sex ) {
+//				alert("true")
+             $(this).prop("checked" , "checked");
+         } else {
+//				alert("false")
+//				$(this).prop("checked" , "none");
+         }
+     })
+
+
      $(".user_add_time").text("注册于 " + formatDate(new Date(userData.addTime.time)))
      show_message("video_star_me", 1, "target_account");
      test_message();
@@ -460,37 +489,37 @@ $(function() {
 	
 	
 	
-	//获取登录用户信息
-	$.get("c_user" , function(data){
-		$(".head_img2").attr("src" , "https://static.xudazhu.cn/img/head_img/"+data.headImg+".png" );
-		$(".icon_uid").next().text(data.accountId) ;
-		$("#user_age")[0].value = data.age;
-		$("#setting_user_info")[0].value = data.info;
-		$("#h-sign")[0].value = data.info;
-		$("#nickname")[0].value = data.nickname;
-		$("#h-name").text(data.nickname);
-		
-		if ( data.sex == "男") {
-			$("#h-gender").css("background-position-y" , "-472px")
-		} else if (data.sex == "女") {
-			$("#h-gender").css("background-position-y" , "-404px")
-		} else {
-			$("#h-gender").css("background-position-y" , "-536px")
-		}
-		
-		$(".sex").each(function(index) {
-//			alert($(this).parent("label").text() + " = " + data.sex )
-			if($(this).parent("label").text() == data.sex ) {
-//				alert("true")
-				$(this).prop("checked" , "checked");
-			} else {
-//				alert("false")
-//				$(this).prop("checked" , "none");
-			}
-		})
-		
-		
-	} , "json");
+// 	//获取登录用户信息
+// 	$.get("c_user" , function(data){
+// 		$(".head_img2").attr("src" , "https://static.xudazhu.cn/img/head_img/"+data.headImg+".png" );
+// 		$(".icon_uid").next().text(data.accountId) ;
+// 		$("#user_age")[0].value = data.age;
+// 		$("#setting_user_info")[0].value = data.info;
+// 		$("#h-sign")[0].value = data.info;
+// 		$("#nickname")[0].value = data.nickname;
+// 		$("#h-name").text(data.nickname);
+//
+// 		if ( data.sex == "男") {
+// 			$("#h-gender").css("background-position-y" , "-472px")
+// 		} else if (data.sex == "女") {
+// 			$("#h-gender").css("background-position-y" , "-404px")
+// 		} else {
+// 			$("#h-gender").css("background-position-y" , "-536px")
+// 		}
+//
+// 		$(".sex").each(function(index) {
+// //			alert($(this).parent("label").text() + " = " + data.sex )
+// 			if($(this).parent("label").text() == data.sex ) {
+// //				alert("true")
+// 				$(this).prop("checked" , "checked");
+// 			} else {
+// //				alert("false")
+// //				$(this).prop("checked" , "none");
+// 			}
+// 		})
+//
+//
+// 	} , "json");
 	
 	
 	

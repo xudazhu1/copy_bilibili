@@ -14,6 +14,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -28,6 +29,7 @@ import java.util.Map;
  * @author xudaz
  * @date 2019/2/28
  */
+@Transactional(rollbackFor = Exception.class)
 @Service
 public class VideoService {
 
@@ -63,7 +65,7 @@ public class VideoService {
         List<VideoBean> videoBeans =  new ArrayList<>();
         Long allNum = -1L;
 
-        String videoId = "sectionBeanId";
+        String videoId = "subsectionBeanId";
         if (map.get(videoId) != null) {
             int i = Integer.parseInt((String) map.get(videoId));
             videoBeans = videoDao.findAllBySubsectionBeanId(i, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
@@ -97,25 +99,6 @@ public class VideoService {
         return json;
 
 
-    }
-
-    /**
-     * 传入条件 返回符合条件的总数
-     *
-     * @param map 条件
-     * @return 数量
-     */
-    Long getVideoNum(Map<String, Object> map) {
-        VideoBean videoBean = new VideoBean();
-        Boolean populate = MyBeanUtils.populate(videoBean, map);
-        if (populate) {
-            if (map.size() == 0) {
-                return videoDao.count();
-            }
-            return videoDao.count(Example.of(videoBean));
-        } else {
-            return 0L;
-        }
     }
 
     /**
@@ -192,15 +175,23 @@ public class VideoService {
      * @param map 条件
      * @return 数量
      */
-    List<VideoBean> getVideo4sectionId(Map<String, Object> map, int aPageNum, int pageNum, String condition) {
+    JSONObject getVideo4sectionId(Map<String, Object> map, int aPageNum, int pageNum, String condition) {
         String sectionId = (String) map.get("sectionId");
         if (sectionId == null) {
-            return new ArrayList<>();
+            return new JSONObject();
         }
         SubsectionBean subsectionBean = new SubsectionBean();
         subsectionBean.setSectionId(Integer.parseInt(sectionId));
         List<SubsectionBean> subsectionBeans = subsectionDao.findAll(Example.of(subsectionBean));
-        return videoDao.findAllBySubsectionBeanIn(subsectionBeans, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+        List<VideoBean> allBySubsectionBeanIn = videoDao.findAllBySubsectionBeanIn(subsectionBeans, PageRequest.of(pageNum - 1, aPageNum, Sort.by(Sort.Order.desc(condition))));
+        Long allNum = videoDao.countAllBySubsectionBeanIn(subsectionBeans);
+        JSONArray jsonArray = JSONArray.fromObject(allBySubsectionBeanIn);
+        JSONObject json = new JSONObject();
+        json.put("all_page_num", ((allNum - 1) / aPageNum) + 1);
+        json.put("all_num", allNum);
+        json.put("video_data", jsonArray);
+        System.out.println("GetVideo = " + json.toString());
+        return json ;
 
     }
 }
