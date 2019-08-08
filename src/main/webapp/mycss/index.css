@@ -284,6 +284,10 @@ a {
 	/*溢出不换行*/
 }
 
+.videoDivMore {
+	display: none;
+}
+
 .video_hover_title {
 	overflow: hidden;
 	text-overflow: ellipsis;

@@ -6,14 +6,20 @@ import cn.xudazhu.bilibili.utils.FormatMap;
 import cn.xudazhu.bilibili.video.VideoBean;
 import cn.xudazhu.bilibili.video.VideoDao;
 import cn.xudazhu.bilibili.video.VideoService;
+import net.sf.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -84,12 +90,29 @@ public class BilibiliApplicationTests {
 
     @Test
     public void contextLoads() {
-//        Page<VideoBean> videoAll = videoDao.findAll(PageRequest.of(1, 10, Sort.by(Sort.Order.desc("upDate"))));
-//        System.out.println(videoAll.getContent());
+//        List<VideoBean> allByTypeAndCoverId = videoDao.findAllByTypeAndCoverId("mp4", 4);
+//        JSONObject jsonObject = new JSONObject();
+//        Map<String , Object> map = new HashMap<>();
+//        map.put("countNum" , 10);
+//        map.put("pageNum" , 1);
+//        jsonObject.put("pageData" , map);
+//        jsonObject.put("statusCode" , 1);
+//        jsonObject.put("data" , allByTypeAndCoverId);
+//
+//        System.out.println(jsonObject.toString());
+
 //        VideoService videoService = new VideoService();
 //        videoService.setVideoDao(videoDao);
 //        List<VideoBean> videoBeans = videoService.getVideo(FormatMap.newMap(new Object[]{"id"}, new Object[]{36}), 1, 1, "id");
 //        System.out.println( "videoBeans" + videoBeans);
+        Page<VideoBean> videoBeans = videoDao.findAll(PageRequest.of(2, 15, Sort.by(Sort.Order.desc("upDate"))));
+        System.out.println(videoBeans.getContent());
+        System.out.println("getTotalElements == > " + videoBeans.getTotalElements());
+        System.out.println("getTotalPages == > " + videoBeans.getTotalPages());
+        System.out.println("getNumberOfElements == > " + videoBeans.getNumberOfElements());
+        System.out.println("getNumber == > " + videoBeans.getNumber());
+
+
     }
 
 }

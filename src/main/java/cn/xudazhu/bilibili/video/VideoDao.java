@@ -61,4 +61,13 @@ public interface VideoDao extends JpaRepository<VideoBean , Integer> {
      * @return count 数
      */
     Long countAllByUserBeanAccountId(Integer userBeanAccountId );
+
+    /**
+     * findAllByTypeAndCoverId
+     * @param type type
+     * @param coverId coverId
+     * @return 查询到的结果集
+     */
+    List<VideoBean> findAllByTypeAndCoverId(String type, Integer coverId);
+
 }

@@ -50,35 +50,6 @@ public class VideoController {
 
     }
 
-    //    @RequestMapping(value="or" , method=RequestMethod.GET )
-//    @ResponseBody
-//    public String get_video_or  ( HttpServletRequest request  ) throws Exception{
-//        try {
-//            String a_page_num = request.getParameter("a_page_num") == null ? "20" : request.getParameter("a_page_num");
-//            String page_num = request.getParameter("page_num") == null ? "1" : request.getParameter("page_num");
-//            List<VideoBean> select_limit = videoService.getVideo_or(FormatMap.fomatRequestMap(request.getParameterMap() ), a_page_num, page_num, request.getParameter("condition"));
-//
-//            Integer allNum = utilsService.get_select_num_or(VideoBean.class , FormatMap.fomatRequestMap(request.getParameterMap()));
-//            System.out.println("all_video_num = " + allNum);
-//
-//            JSONArray jsonArray = JSONArray.fromObject(select_limit);
-//            AddCascadingObjUtils.format(VideoBean.class, jsonArray);
-//            JSONObject json = new JSONObject();
-//            json.put("all_page_num",  ( ( (allNum-1) / Integer.parseInt(a_page_num) ) + 1 ));
-//            json.put("all_num", allNum);
-//            json.put("video_data", jsonArray);
-//
-//            System.out.println("GetVideo_or = " + json.toString());
-//            System.out.println("page_num = " + page_num + "SelectVideo = " + json.toString());
-//            return json.toString();
-//
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return "";
-//        }
-//    }
-//
-//
 
 
     @PostMapping

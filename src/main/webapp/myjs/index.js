@@ -63,13 +63,15 @@ function show_video_a() {
         $(selectVideoData.video_data).each(function (index, video) {
             if (index < 5) {
                 $(take_turns_img[index]).attr("src", "https://static.xudazhu.cn/img/cover/" + video.coverId + ".jpg")
-                $(take_turns_img[index]).after("<div class='img_hover_big img-rounded' style='display: none;'>	<div class='video_hover_title' >" + video.title + "</div> <div class='video_hover_playNum'> 播放" + video.playNum + "次</div> </div>")
+                $(take_turns_img[index]).after("<div class='img_hover_big img-rounded' style='display: none;'>	<div class='video_hover_title' >" + video.title + "</div>" +
+                    " <div class='video_hover_playNum videoDivMore'> 播放" + video.playNum + "次</div><div class='video_hover_nickname videoDivMore'> UP主: " + video.userBean.nickname + " </div> </div>")
                 $(take_turns_img[index]).parent().attr("href", "video.html?videoId=" + video.id);
                 $(take_turns_img[index]).parent().attr("title", video.title);
             } else {
                 $(hot_video_img[index - 5]).attr("src", "https://static.xudazhu.cn/img/cover/" + video.coverId + ".jpg")
                 $(hot_video_img[index - 5]).next().remove();
-                $(hot_video_img[index - 5]).after("<div class='img_hover img-rounded' style='display: block;'>	<div class='video_hover_title' >" + video.title + "</div> <div class='video_hover_playNum'> 播放" + video.playNum + "次</div> </div>")
+                $(hot_video_img[index - 5]).after("<div class='img_hover img-rounded' style='display: block;'>	<div class='video_hover_title' >" + video.title + "</div>" +
+                    " <div class='video_hover_playNum videoDivMore'> 播放" + video.playNum + "次</div><div class='video_hover_nickname videoDivMore'> UP主: " + video.userBean.nickname + " </div> </div>")
                 $(hot_video_img[index - 5]).parent().attr("href", "video.html?videoId=" + video.id);
                 $(hot_video_img[index - 5]).parent().attr("title", video.title);
             }
@@ -113,6 +115,8 @@ $(function () {
         $(this).next().css("height", "100px");
         $(this).next().css("background-color", "black");
         $(this).next().css("opacity", "0.7");
+        $(this).next().find(".video_hover_title").css("height" , "65%");
+        $(this).next().find(".videoDivMore").show();
 //		background-color: black;
 //		opacity: 0.7;
     })
@@ -122,6 +126,8 @@ $(function () {
         $(this).next().css("top", "-19px");
         $(this).next().css("height", "18px");
         $(this).next().css("background", "linear-gradient(to top, black, rgba(0, 0, 0, 0))");
+        $(this).next().find(".video_hover_title").css("height" , "80%");
+        $(this).next().find(".videoDivMore").hide();
 //		$(this).next().css("opacity" , "0.7");
 
 
